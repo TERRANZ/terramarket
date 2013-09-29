@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/opt/eclipse/plugins/org.eclipse.core.databinding_1.4.1.v20130515-1857.jar" sourcepath="/opt/eclipse/plugins/org.eclipse.core.databinding.source_1.4.1.v20130515-1857.jar"/>
+	<classpathentry kind="lib" path="/opt/eclipse/plugins/org.eclipse.core.databinding.beans_1.2.200.v20130515-1857.jar" sourcepath="/opt/eclipse/plugins/org.eclipse.core.databinding.beans.source_1.2.200.v20130515-1857.jar"/>
+	<classpathentry kind="lib" path="/opt/eclipse/plugins/org.eclipse.core.databinding.observable_1.4.1.v20130515-1857.jar" sourcepath="/opt/eclipse/plugins/org.eclipse.core.databinding.observable.source_1.4.1.v20130515-1857.jar"/>
+	<classpathentry kind="lib" path="/opt/eclipse/plugins/org.eclipse.core.databinding.property_1.4.200.v20130515-1857.jar" sourcepath="/opt/eclipse/plugins/org.eclipse.core.databinding.property.source_1.4.200.v20130515-1857.jar"/>
+	<classpathentry kind="lib" path="/opt/eclipse/plugins/org.eclipse.jface.databinding_1.6.200.v20130515-1857.jar" sourcepath="/opt/eclipse/plugins/org.eclipse.jface.databinding.source_1.6.200.v20130515-1857.jar"/>
+	<classpathentry kind="lib" path="/opt/eclipse/plugins/com.ibm.icu_50.1.1.v201304230130.jar" sourcepath="/opt/eclipse/plugins/com.ibm.icu.source_50.1.1.v201304230130.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
