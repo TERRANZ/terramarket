@@ -4,35 +4,22 @@
  */
 package ru.terra.terramarket.db.entity;
 
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
  * @author terranz
  */
 @Entity
 @Table(name = "store", catalog = "terramarket", schema = "")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Store.findAll", query = "SELECT s FROM Store s"),
-    @NamedQuery(name = "Store.findById", query = "SELECT s FROM Store s WHERE s.id = :id"),
-    @NamedQuery(name = "Store.findByCount", query = "SELECT s FROM Store s WHERE s.count = :count"),
-    @NamedQuery(name = "Store.findByUpdated", query = "SELECT s FROM Store s WHERE s.updated = :updated")})
+        @NamedQuery(name = "Store.findAll", query = "SELECT s FROM Store s"),
+        @NamedQuery(name = "Store.findById", query = "SELECT s FROM Store s WHERE s.id = :id"),
+        @NamedQuery(name = "Store.findByCount", query = "SELECT s FROM Store s WHERE s.count = :count"),
+        @NamedQuery(name = "Store.findByUpdated", query = "SELECT s FROM Store s WHERE s.updated = :updated")})
 public class Store implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -58,10 +45,11 @@ public class Store implements Serializable {
         this.id = id;
     }
 
-    public Store(Integer id, int count, Date updated) {
+    public Store(Integer id, Product product, int count, Date updated) {
         this.id = id;
         this.count = count;
         this.updated = updated;
+        this.prodId = product;
     }
 
     public Integer getId() {
@@ -120,5 +108,5 @@ public class Store implements Serializable {
     public String toString() {
         return "ru.terra.terramarket.db.entity.Store[ id=" + id + " ]";
     }
-    
+
 }

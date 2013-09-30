@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 
 import ru.terra.terramarket.cache.GroupCache;
 import ru.terra.terramarket.cache.ProductsCache;
+import ru.terra.terramarket.cache.StoreCache;
 import ru.terra.terramarket.cache.WayBillsCache;
 
 public class CacheManager {
@@ -22,6 +23,7 @@ public class CacheManager {
 			ProductsCache.getInstance().fill();
 			GroupCache.getInstance().fill();
 			WayBillsCache.getInstance().fill();
+			StoreCache.getInstance().fill();
 		} catch (Exception e) {
 			logger.error("Unable to load", e);
 		}

@@ -1,7 +1,5 @@
 package ru.terra.terramarket.network;
 
-import java.util.List;
-
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientFactory;
 import javax.ws.rs.client.WebTarget;
@@ -14,6 +12,7 @@ import ru.terra.terramarket.dto.ListDTO;
 import ru.terra.terramarket.dto.LoginDTO;
 import ru.terra.terramarket.dto.group.GroupDTO;
 import ru.terra.terramarket.dto.product.ProductDTO;
+import ru.terra.terramarket.dto.store.StoreDTO;
 import ru.terra.terramarket.dto.waybill.WayBillDTO;
 import ru.terra.terramarket.gui.swt.waybills.EditWayBillDialog.WayBillBean;
 
@@ -33,12 +32,16 @@ public class RestClient {
 		return createRequest().loadGroups(SessionHolder.sessionId, true, -1, -1);
 	}
 
-	public LoginDTO login(String user, String pass) {
-		return createRequest().login(SessionHolder.sessionId, user, pass);
-	}
-
 	public ListDTO<WayBillDTO> loadWBs() {
 		return createRequest().loadWBs(SessionHolder.sessionId, true, -1, -1);
+	}
+
+	public ListDTO<StoreDTO> loadStore() {
+		return createRequest().loadStore(SessionHolder.sessionId, true, -1, -1);
+	}
+
+	public LoginDTO login(String user, String pass) {
+		return createRequest().login(SessionHolder.sessionId, user, pass);
 	}
 
 	public WayBillDTO createWB(WayBillBean bean) {
@@ -87,4 +90,8 @@ public class RestClient {
 		return createRequest().doSell(SessionHolder.sessionId, aproducts, acounts).data;
 	}
 
+	public Boolean storeAdd(Integer product, Integer count) {
+		return createRequest().addToStore(SessionHolder.sessionId, product, count).data;
+				
+	}
 }

@@ -14,6 +14,7 @@ public class GroupCache extends AbstractCache<Integer, GroupDTO> {
 	private GroupCache() {
 	}
 
+	@Override
 	public void fill() {
 		ListDTO<GroupDTO> groups = new RestClient().loadGroups();
 		if (groups != null)

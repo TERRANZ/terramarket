@@ -19,6 +19,7 @@ public class ProductsCache extends AbstractCache<Integer, ProductDTO> {
     private ProductsCache() {
     }
 
+    @Override
     public void fill() {
         ListDTO<ProductDTO> prods = new RestClient().loadProducts();
         if (prods != null)
