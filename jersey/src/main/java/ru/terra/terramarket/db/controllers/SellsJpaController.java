@@ -9,6 +9,7 @@ import ru.terra.terramarket.db.controllers.exceptions.IllegalOrphanException;
 import ru.terra.terramarket.db.controllers.exceptions.NonexistentEntityException;
 import ru.terra.terramarket.db.entity.Sells;
 import ru.terra.terramarket.db.entity.SellsItem;
+import ru.terra.terramarket.db.entity.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
@@ -34,6 +35,11 @@ public class SellsJpaController extends AbstractJpaController<Sells> implements 
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            User user = sells.getUser();
+            if (user != null) {
+                user = em.getReference(user.getClass(), user.getId());
+                sells.setUser(user);
+            }
             List<SellsItem> attachedSellsItemList = new ArrayList<SellsItem>();
             for (SellsItem sellsItemListSellsItemToAttach : sells.getSellsItemList()) {
                 sellsItemListSellsItemToAttach = em.getReference(sellsItemListSellsItemToAttach.getClass(), sellsItemListSellsItemToAttach.getId());
@@ -41,6 +47,10 @@ public class SellsJpaController extends AbstractJpaController<Sells> implements 
             }
             sells.setSellsItemList(attachedSellsItemList);
             em.persist(sells);
+            if (user != null) {
+                user.getSellsList().add(sells);
+                user = em.merge(user);
+            }
             for (SellsItem sellsItemListSellsItem : sells.getSellsItemList()) {
                 Sells oldSellIdOfSellsItemListSellsItem = sellsItemListSellsItem.getSellId();
                 sellsItemListSellsItem.setSellId(sells);
@@ -65,6 +75,10 @@ public class SellsJpaController extends AbstractJpaController<Sells> implements 
             em = getEntityManager();
             em.getTransaction().begin();
             Sells persistentSells = em.find(Sells.class, sells.getId());
+
+            User userOld = persistentSells.getUser();
+            User userNew = sells.getUser();
+
             List<SellsItem> sellsItemListOld = persistentSells.getSellsItemList();
             List<SellsItem> sellsItemListNew = sells.getSellsItemList();
             List<String> illegalOrphanMessages = null;
@@ -87,6 +101,14 @@ public class SellsJpaController extends AbstractJpaController<Sells> implements 
             sellsItemListNew = attachedSellsItemListNew;
             sells.setSellsItemList(sellsItemListNew);
             sells = em.merge(sells);
+            if (userOld != null && !userOld.equals(userNew)) {
+                userOld.getSellsList().remove(sells);
+                userOld = em.merge(userOld);
+            }
+            if (userNew != null && !userNew.equals(userOld)) {
+                userNew.getSellsList().add(sells);
+                userNew = em.merge(userNew);
+            }
             for (SellsItem sellsItemListNewSellsItem : sellsItemListNew) {
                 if (!sellsItemListOld.contains(sellsItemListNewSellsItem)) {
                     Sells oldSellIdOfSellsItemListNewSellsItem = sellsItemListNewSellsItem.getSellId();

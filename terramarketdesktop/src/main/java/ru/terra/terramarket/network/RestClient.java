@@ -12,6 +12,7 @@ import ru.terra.terramarket.dto.ListDTO;
 import ru.terra.terramarket.dto.LoginDTO;
 import ru.terra.terramarket.dto.group.GroupDTO;
 import ru.terra.terramarket.dto.product.ProductDTO;
+import ru.terra.terramarket.dto.sell.SellDTO;
 import ru.terra.terramarket.dto.store.StoreDTO;
 import ru.terra.terramarket.dto.waybill.WayBillDTO;
 import ru.terra.terramarket.gui.swt.waybills.EditWayBillDialog.WayBillBean;
@@ -38,6 +39,10 @@ public class RestClient {
 
 	public ListDTO<StoreDTO> loadStore() {
 		return createRequest().loadStore(SessionHolder.sessionId, true, -1, -1);
+	}
+
+	public ListDTO<SellDTO> loadSells() {
+		return createRequest().loadSells(SessionHolder.sessionId, true, -1, -1);
 	}
 
 	public LoginDTO login(String user, String pass) {
@@ -92,6 +97,6 @@ public class RestClient {
 
 	public Boolean storeAdd(Integer product, Integer count) {
 		return createRequest().addToStore(SessionHolder.sessionId, product, count).data;
-				
+
 	}
 }

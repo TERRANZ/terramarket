@@ -8,6 +8,7 @@ import ru.terra.terramarket.db.controllers.SellsItemJpaController;
 import ru.terra.terramarket.db.controllers.SellsJpaController;
 import ru.terra.terramarket.db.entity.Sells;
 import ru.terra.terramarket.db.entity.SellsItem;
+import ru.terra.terramarket.db.entity.User;
 import ru.terra.terramarket.dto.sell.SellDTO;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class SellsEngine extends AbstractEngine<Sells, SellDTO> {
         super(new SellsJpaController());
     }
 
-    public SimpleDataDTO<Integer> doSell(String[] products, String[] counts) {
+    public SimpleDataDTO<Integer> doSell(User user, String[] products, String[] counts) {
         logger.info("doing sell");
         List<Integer> productList = new ArrayList<>();
         List<Integer> countList = new ArrayList<>();
@@ -47,6 +48,7 @@ public class SellsEngine extends AbstractEngine<Sells, SellDTO> {
         }
 
         Sells sell = new Sells();
+        sell.setUser(user);
         createBean(sell);
         for (int i = 0; i < productList.size(); i++) {
             try {
@@ -79,7 +81,6 @@ public class SellsEngine extends AbstractEngine<Sells, SellDTO> {
 
     @Override
     public void dtoToEntity(SellDTO sellDTO, Sells sells) {
-
     }
 
     @Override

@@ -1,6 +1,6 @@
 package ru.terra.terramarket.gui.swt.product;
 
-import org.eclipse.core.databinding.DataBindingContext;
+
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -23,7 +23,6 @@ import ru.terra.terramarket.cache.GroupCache;
 import ru.terra.terramarket.dto.product.ProductDTO;
 
 public class ProductEditDialog extends Dialog {
-	private DataBindingContext m_bindingContext;
 
 	protected ProductDTO result;
 	protected Shell shell;

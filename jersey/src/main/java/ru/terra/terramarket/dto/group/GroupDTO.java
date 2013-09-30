@@ -28,8 +28,4 @@ public class GroupDTO extends CommonDTO {
                 productList.add(new ProductDTO(prod));
             }
     }
-
-    public static GroupDTO valueOf(String json) {
-        return new JSONDeserializer<GroupDTO>().deserialize(json);
-    }
 }

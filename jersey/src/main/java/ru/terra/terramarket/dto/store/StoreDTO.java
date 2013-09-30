@@ -19,7 +19,4 @@ public class StoreDTO extends CommonDTO {
         this.updated = s.getUpdated();
     }
 
-    public static StoreDTO valueOf(String json) {
-        return new JSONDeserializer<StoreDTO>().deserialize(json);
-    }
 }

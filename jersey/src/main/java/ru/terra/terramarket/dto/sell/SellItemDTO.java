@@ -16,7 +16,4 @@ public class SellItemDTO extends CommonDTO {
         prod = new ProductDTO(si.getProduct());
     }
 
-    public static SellItemDTO valueOf(String json) {
-        return new JSONDeserializer<SellItemDTO>().deserialize(json);
-    }
 }

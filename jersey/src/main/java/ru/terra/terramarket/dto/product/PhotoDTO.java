@@ -22,8 +22,4 @@ public class PhotoDTO extends CommonDTO {
         this.userId = photo.getUserId().getId();
         this.productId = photo.getProductId().getId();
     }
-
-    public static PhotoDTO valueOf(String json) {
-        return new JSONDeserializer<PhotoDTO>().deserialize(json);
-    }
 }

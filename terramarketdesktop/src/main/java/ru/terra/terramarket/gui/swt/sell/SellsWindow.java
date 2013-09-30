@@ -1,5 +1,7 @@
 package ru.terra.terramarket.gui.swt.sell;
 
+import java.util.Date;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -12,8 +14,14 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
+
+import ru.terra.terramarket.cache.SellsCache;
+import ru.terra.terramarket.dto.sell.SellDTO;
+import ru.terra.terramarket.dto.sell.SellItemDTO;
+import ru.terra.terramarket.dto.store.StoreDTO;
 
 public class SellsWindow extends Shell {
 	private Table table;
@@ -72,6 +80,7 @@ public class SellsWindow extends Shell {
 		tblclmnNewColumn.setText("Продавец");
 		tblclmnNewColumn.setWidth(100);
 		createContents();
+		load();
 	}
 
 	/**
@@ -86,5 +95,16 @@ public class SellsWindow extends Shell {
 	@Override
 	protected void checkSubclass() {
 		// Disable the check that prevents subclassing of SWT components
+	}
+
+	private void load() {
+		for (SellDTO dto : SellsCache.getInstance().getValues()) {
+			TableItem ti = new TableItem(table, SWT.NONE);
+			Integer sum = 0;
+			for (SellItemDTO si : dto.sellItems) {
+				sum += (si.prod.priceOut * si.count);
+			}
+			ti.setText(new String[] { dto.id.toString(), new Date(dto.sellDate).toString(), sum.toString(), dto.user.name });
+		}
 	}
 }

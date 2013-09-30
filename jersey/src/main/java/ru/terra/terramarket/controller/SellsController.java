@@ -46,7 +46,7 @@ public class SellsController extends AbstractController<Sells, SellDTO, SellsEng
         logger.info("Doing sell with products = " + products + " and counts = " + counts);
         String[] parsedProds = products.split(",");
         String[] parsedCounts = counts.split(",");
-        return engine.doSell(parsedProds, parsedCounts);
+        return engine.doSell(getCurrentUser(hc), parsedProds, parsedCounts);
     }
 
 }
