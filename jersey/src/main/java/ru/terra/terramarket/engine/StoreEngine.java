@@ -48,4 +48,20 @@ public class StoreEngine extends AbstractEngine<Store, StoreDTO> {
     public StoreDTO entityToDto(Store store) {
         return new StoreDTO(store);
     }
+
+    public boolean isProductAvailable(Integer id, Integer count) {
+        return ((StoreJpaController) jpaController).isProductAvailable(productEngine.getBean(id), count);
+    }
+
+    public boolean decreaseProducts(Integer id, Integer count) {
+        Store store = ((StoreJpaController) jpaController).findByProduct(productEngine.getBean(id));
+        store.setCount(store.getCount() - count);
+        try {
+            jpaController.update(store);
+            return true;
+        } catch (Exception e) {
+            logger.error("Unable to decrease products count in store", e);
+            return false;
+        }
+    }
 }

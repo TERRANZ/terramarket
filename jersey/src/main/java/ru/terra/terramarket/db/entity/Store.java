@@ -19,6 +19,7 @@ import java.util.Date;
         @NamedQuery(name = "Store.findAll", query = "SELECT s FROM Store s"),
         @NamedQuery(name = "Store.findById", query = "SELECT s FROM Store s WHERE s.id = :id"),
         @NamedQuery(name = "Store.findByCount", query = "SELECT s FROM Store s WHERE s.count = :count"),
+        @NamedQuery(name = "Store.findByProduct", query = "SELECT s FROM Store s WHERE s.prodId = :prod"),
         @NamedQuery(name = "Store.findByUpdated", query = "SELECT s FROM Store s WHERE s.updated = :updated")})
 public class Store implements Serializable {
     private static final long serialVersionUID = 1L;

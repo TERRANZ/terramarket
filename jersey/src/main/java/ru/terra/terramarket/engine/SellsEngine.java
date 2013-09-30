@@ -4,10 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.terra.server.dto.SimpleDataDTO;
 import ru.terra.server.engine.AbstractEngine;
-import ru.terra.terramarket.db.controllers.ProductJpaController;
 import ru.terra.terramarket.db.controllers.SellsItemJpaController;
 import ru.terra.terramarket.db.controllers.SellsJpaController;
-import ru.terra.terramarket.db.controllers.StoreJpaController;
 import ru.terra.terramarket.db.entity.Sells;
 import ru.terra.terramarket.db.entity.SellsItem;
 import ru.terra.terramarket.dto.sell.SellDTO;
@@ -20,8 +18,8 @@ public class SellsEngine extends AbstractEngine<Sells, SellDTO> {
 
     private Logger logger = LoggerFactory.getLogger(SellsEngine.class);
     private SellsItemJpaController sellsItemJpaController = new SellsItemJpaController();
-    private ProductJpaController productJpaController = new ProductJpaController();
-    private StoreJpaController storeJpaController = new StoreJpaController();
+    private ProductEngine productEngine = new ProductEngine();
+    private StoreEngine storeEngine = new StoreEngine();
 
     public SellsEngine() {
         super(new SellsJpaController());
@@ -37,7 +35,7 @@ public class SellsEngine extends AbstractEngine<Sells, SellDTO> {
             Integer count = Integer.parseInt(counts[i]);
             countList.add(count);
             try {
-                if (!storeJpaController.isProductAvailable(productJpaController.get(pId), count)) {
+                if (!storeEngine.isProductAvailable(pId, count)) {
                     SimpleDataDTO<Integer> errorDTO = new SimpleDataDTO<>(-1);
                     errorDTO.errorMessage = "Item " + pId + " with count " + count + " not available at store!";
                     errorDTO.errorCode = 1;
@@ -52,11 +50,13 @@ public class SellsEngine extends AbstractEngine<Sells, SellDTO> {
         createBean(sell);
         for (int i = 0; i < productList.size(); i++) {
             try {
+                Integer prodId = productList.get(i);
                 SellsItem si = new SellsItem();
-                si.setProdId(productJpaController.get(productList.get(i)));
+                si.setProdId(productEngine.getBean(prodId));
                 si.setCount(countList.get(i));
                 si.setSellId(sell);
                 sellsItemJpaController.create(si);
+                storeEngine.decreaseProducts(prodId, countList.get(i));
             } catch (NumberFormatException e) {
                 logger.error("error while parsing prod id", e);
             } catch (Exception e) {

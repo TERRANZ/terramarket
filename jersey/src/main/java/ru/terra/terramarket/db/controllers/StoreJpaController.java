@@ -11,6 +11,7 @@ import ru.terra.terramarket.db.entity.Store;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Query;
 import java.io.Serializable;
 
 /**
@@ -106,14 +107,28 @@ public class StoreJpaController extends AbstractJpaController<Store> implements 
             em.remove(store);
             em.getTransaction().commit();
         } finally {
-            if (em != null) {
+            if (em != null)
                 em.close();
-            }
         }
     }
 
-    public boolean isProductAvailable(Product findProduct, Integer count) {
+    public boolean isProductAvailable(Product product, Integer count) {
+        Store store = findByProduct(product);
+        if (store != null)
+            return store.getCount() >= count;
         return false;
+    }
+
+    public Store findByProduct(Product product) {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            Query q = em.createNamedQuery("Store.findByProduct").setParameter("prod", product);
+            return (Store) q.getSingleResult();
+        } finally {
+            if (em != null)
+                em.close();
+        }
     }
 
 }
