@@ -120,6 +120,7 @@ public class EditWayBillDialog extends Dialog {
 	 */
 	private void createContents() {
 		shell = new Shell(getParent(), SWT.SHELL_TRIM | SWT.BORDER);
+		shell.setSize(836, 508);
 		shell.setText("Накладные");
 		shell.setLayout(new GridLayout(1, false));
 
@@ -180,7 +181,7 @@ public class EditWayBillDialog extends Dialog {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				final TableItem item = new TableItem(tblProducts, SWT.NONE);
-				item.setText(new String[] { String.valueOf(tblProducts.getItemCount()), "", "0" });
+				item.setText(new String[] { String.valueOf(tblProducts.getItemCount()), "", "1" });
 				Spinner newEditor = new Spinner(tblProducts, SWT.NONE);
 				newEditor.setValues(Integer.parseInt(item.getText(COLUMN_COUNT)), 0, 9999, 0, 1, 10);
 				final TableEditor editor = new TableEditor(tblProducts);
@@ -219,14 +220,14 @@ public class EditWayBillDialog extends Dialog {
 		tableColumn_2.setWidth(100);
 		tableColumn_2.setText("Кол-во");
 
-		String[] titles = { "№", "Наименование", "Кол-во" };
-		for (int i = 0; i < titles.length; i++) {
-			TableColumn column = new TableColumn(tblProducts, SWT.NONE);
-			column.setText(titles[i]);
-		}
-		for (int i = 0; i < titles.length; i++) {
-			tblProducts.getColumn(i).pack();
-		}
+//		String[] titles = { "№", "Наименование", "Кол-во" };
+//		for (int i = 0; i < titles.length; i++) {
+//			TableColumn column = new TableColumn(tblProducts, SWT.NONE);
+//			column.setText(titles[i]);
+//		}
+//		for (int i = 0; i < titles.length; i++) {
+//			tblProducts.getColumn(i).pack();
+//		}
 		tblProducts.addListener(SWT.MouseDoubleClick, new Listener() {
 			@Override
 			public void handleEvent(Event event) {

@@ -1,7 +1,5 @@
 package ru.terra.terramarket.gui.swt.waybills;
 
-import javax.ws.rs.client.ClientException;
-
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseAdapter;

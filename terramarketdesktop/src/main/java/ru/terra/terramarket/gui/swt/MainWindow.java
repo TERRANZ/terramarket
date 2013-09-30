@@ -20,6 +20,7 @@ import ru.terra.terramarket.gui.swt.group.GroupsWindow;
 import ru.terra.terramarket.gui.swt.product.ProductEditDialog;
 import ru.terra.terramarket.gui.swt.product.ProductsWindow;
 import ru.terra.terramarket.gui.swt.sell.SellsWindow;
+import ru.terra.terramarket.gui.swt.store.StoreWindow;
 import ru.terra.terramarket.gui.swt.waybills.EditWayBillDialog;
 import ru.terra.terramarket.gui.swt.waybills.EditWayBillDialog.WayBillBean;
 import ru.terra.terramarket.gui.swt.waybills.WayBillsWindow;
@@ -134,6 +135,21 @@ public class MainWindow {
 			}
 		});
 		miGroupsManage.setText("Группы...");
+		
+		MenuItem mrStore = new MenuItem(menu, SWT.CASCADE);
+		mrStore.setText("Склад");
+		
+		Menu menu_5 = new Menu(mrStore);
+		mrStore.setMenu(menu_5);
+		
+		MenuItem mntmNewItem = new MenuItem(menu_5, SWT.NONE);
+		mntmNewItem.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				new StoreWindow(display).open();
+			}
+		});
+		mntmNewItem.setText("На склад...");
 
 		Menu menu_3 = new Menu(shell);
 		shell.setMenu(menu_3);

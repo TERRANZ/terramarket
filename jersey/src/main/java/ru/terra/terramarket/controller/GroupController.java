@@ -19,8 +19,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 @Path(URLConstants.DoJson.Group.GROUP)
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
 public class GroupController extends AbstractController<Groups, GroupDTO, GroupEngine> {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 

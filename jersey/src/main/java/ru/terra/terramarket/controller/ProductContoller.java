@@ -22,7 +22,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 @Path(URLConstants.DoJson.Product.PRODUCT)
-@Produces(MediaType.APPLICATION_JSON)
 public class ProductContoller extends AbstractController<Product, ProductDTO, ProductEngine> {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     private GroupEngine groupEngine = new GroupEngine();

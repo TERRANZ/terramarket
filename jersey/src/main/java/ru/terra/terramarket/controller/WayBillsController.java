@@ -15,14 +15,15 @@ import ru.terra.terramarket.engine.ProductEngine;
 import ru.terra.terramarket.engine.UsersEngine;
 import ru.terra.terramarket.engine.WayBillEngine;
 
-import javax.ws.rs.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
 
 @Path(URLConstants.DoJson.WayBill.WAYBILL)
-@Produces(MediaType.APPLICATION_JSON)
 public class WayBillsController extends AbstractController<Waybill, WayBillDTO, WayBillEngine> {
     public WayBillsController() {
         super(WayBillEngine.class);
@@ -33,10 +34,18 @@ public class WayBillsController extends AbstractController<Waybill, WayBillDTO, 
 
     @GET
     @Path(URLConstants.DoJson.WayBill.UPDATE_ITEMS)
-    public Boolean updateItems(@Context HttpContext hc,
-                               @QueryParam("id") Integer id,
-                               @QueryParam("counts") String counts,
-                               @QueryParam("products") String products) {
+    public SimpleDataDTO<Boolean> updateItems(@Context HttpContext hc,
+                                              @QueryParam("id") Integer id,
+                                              @QueryParam("counts") String counts,
+                                              @QueryParam("products") String products) {
+        if (engine == null)
+            throw new NotImplementedException();
+        if (!checkUserCanAccess(hc, SecurityLevel.MANAGER)) {
+            SimpleDataDTO<Boolean> ret = new SimpleDataDTO<>(false);
+            ret.errorCode = ErrorConstants.ERR_NOT_AUTHORIZED_ID;
+            ret.errorMessage = ErrorConstants.ERR_NOT_AUTHORIZED_MSG;
+            return ret;
+        }
         Waybill wb = engine.getBean(id);
         if (wb != null) {
             String[] parsedProds = products.split(",");
@@ -48,9 +57,9 @@ public class WayBillsController extends AbstractController<Waybill, WayBillDTO, 
                 cnts[i] = Integer.parseInt(parsedCounts[i]);
             }
             engine.updateWayBillItems(wb, prods, cnts);
-            return true;
+            return new SimpleDataDTO<>(true);
         }
-        return false;
+        return new SimpleDataDTO<>(false);
     }
 
     @POST

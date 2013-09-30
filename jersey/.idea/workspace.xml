@@ -1,23 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07a11301-23a6-401c-b398-456ad28ae410" name="Default" comment="" />
+    <list default="true" id="07a11301-23a6-401c-b398-456ad28ae410" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/server/controller/AbstractResource.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/SellsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terramarketdesktop/src/main/resources/drawable/ic_menu_save.png" afterPath="$PROJECT_DIR$/../terramarketdesktop/src/main/resources/drawable/ic_menu_save.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terramarketdesktop/.classpath" afterPath="$PROJECT_DIR$/../terramarketdesktop/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/terra/server/controller/AbstractController.java" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/server/controller/AbstractController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/terra/server/constants/ConfigConstants.java" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/server/constants/ConfigConstants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terramarketdesktop/src/main/java/ru/terra/terramarket/gui/swt/waybills/EditWayBillDialog.java" afterPath="$PROJECT_DIR$/../terramarketdesktop/src/main/java/ru/terra/terramarket/gui/swt/waybills/EditWayBillDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/terra/server/constants/ErrorConstants.java" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/server/constants/ErrorConstants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/GroupController.java" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/GroupController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/ProductContoller.java" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/ProductContoller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terramarketdesktop/src/main/java/ru/terra/terramarket/network/RestClient.java" afterPath="$PROJECT_DIR$/../terramarketdesktop/src/main/java/ru/terra/terramarket/network/RestClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terramarketdesktop/src/main/java/ru/terra/terramarket/network/tmclients/Sells.java" afterPath="$PROJECT_DIR$/../terramarketdesktop/src/main/java/ru/terra/terramarket/network/tmclients/Sells.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/SellsEngine.java" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/SellsEngine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terramarketdesktop/src/main/java/ru/terra/terramarket/gui/swt/sell/SellsWindow.java" afterPath="$PROJECT_DIR$/../terramarketdesktop/src/main/java/ru/terra/terramarket/gui/swt/sell/SellsWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/WayBillsController.java" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/WayBillsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terramarketdesktop/src/main/java/ru/terra/terramarket/gui/swt/waybills/WayBillsWindow.java" afterPath="$PROJECT_DIR$/../terramarketdesktop/src/main/java/ru/terra/terramarket/gui/swt/waybills/WayBillsWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/WayBillsController.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380462734039" ignored="false" />
+    <file path="/WayBillsController.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380532926396" ignored="false" />
     <file path="/WayBillEngine.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380461057470" ignored="false" />
     <file path="/AbstractEngine.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380461612907" ignored="false" />
-    <file path="/AbstractController.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380399766455" ignored="false" />
+    <file path="/AbstractController.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380535553857" ignored="false" />
     <file path="/CommonDTO.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380400432372" ignored="false" />
     <file path="/ProductEngine.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380400669929" ignored="false" />
     <file path="/UsersEngine.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380400658647" ignored="false" />
     <file path="/GroupEngine.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380400689446" ignored="false" />
-    <file path="/SellsEngine.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380400700480" ignored="false" />
+    <file path="/SellsEngine.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380532463647" ignored="false" />
     <file path="/StoreEngine.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380400709966" ignored="false" />
-    <file path="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/constants/URLConstants.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380461102830" ignored="false" />
     <file path="/ProductContoller.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380462232971" ignored="false" />
     <file path="/Product.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380462203029" ignored="false" />
     <file path="/GroupController.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380464136657" ignored="false" />
+    <file path="/SellsController.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380535582230" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/dto/sell/SellDTO.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380532434593" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ru/terra/server/engine/AbstractEngine.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380532434594" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/db/entity/SellsItem.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380532434594" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/db/entity/Sells.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380532434594" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ru/terra/server/dto/CommonDTO.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380532434594" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ru/terra/server/dto/SimpleDataDTO.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380532434594" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/dto/product/ProductDTO.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380532434594" ignored="false" />
+    <file path="/Dummy.txt" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380532512657" ignored="false" />
+    <file path="/AbstractResource.java" changelist="07a11301-23a6-401c-b398-456ad28ae410" time="1380535442364" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +60,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -68,7 +97,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -77,42 +105,40 @@
     <favorites_list name="server" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="SellsEngine.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/SellsEngine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="41" selection-start="1642" selection-end="1642" vertical-scroll-proportion="0.6712565">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/dto/waybill/WayBillItemDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/terra/server/controller/AbstractController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/terra/server/dto/CommonDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/terra/server/db/controllers/AbstractJpaController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/ProductEngine.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/dto/waybill/WayBillDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/terra/server/engine/AbstractEngine.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/UsersEngine.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/GroupEngine.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/db/entity/Product.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/ProductContoller.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/WayBillEngine.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/WayBillsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/SellsEngine.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/StoreEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/SellsEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/ProductContoller.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/GroupController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/WayBillsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/terra/server/constants/ErrorConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/terra/server/controller/AbstractResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/terra/server/controller/AbstractController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/SellsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/terra/server/constants/ConfigConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/SellsEngine.java" />
       </list>
     </option>
   </component>
@@ -124,12 +150,12 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-4" />
-    <option name="y" value="-6" />
-    <option name="width" value="1374" />
-    <option name="height" value="754" />
+    <option name="x" value="-7" />
+    <option name="y" value="-12" />
+    <option name="width" value="1934" />
+    <option name="height" value="1072" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -186,188 +212,34 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jersey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jersey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jersey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="terra" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="terramarket" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jersey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="terra" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="terramarket" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="engine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jersey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="terra" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="terramarket" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jersey" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="terra" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="OverrideImplement.combined" value="true" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -382,19 +254,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -422,6 +281,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -465,6 +337,23 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="07a11301-23a6-401c-b398-456ad28ae410" name="Default" comment="" />
@@ -474,27 +363,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-6" width="1374" height="754" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-12" width="1934" height="1072" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32840723" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23257576" sideWeight="0.6705107" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17395945" sideWeight="0.6705107" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32840723" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -564,132 +453,121 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/db/controllers/ProductJpaController.java">
+    <entry file="file://$PROJECT_DIR$/dependency-reduced-pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="48" selection-start="655" selection-end="655" vertical-scroll-proportion="0.21052632">
+        <state line="7" column="31" selection-start="419" selection-end="419" vertical-scroll-proportion="0.117713004">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/constants/URLConstants.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/server/constants/FilePathConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="39" selection-start="2790" selection-end="2790" vertical-scroll-proportion="0.3321859">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/ProductEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="600" selection-end="600" vertical-scroll-proportion="0.5145798">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/dto/waybill/WayBillDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="11" selection-start="479" selection-end="479" vertical-scroll-proportion="0.30874786">
+        <state line="2" column="13" selection-start="49" selection-end="49" vertical-scroll-proportion="0.033632286">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/UsersEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="0" selection-start="1933" selection-end="1933" vertical-scroll-proportion="0.33333334">
+        <state line="13" column="13" selection-start="421" selection-end="421" vertical-scroll-proportion="-0.18497758">
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/db/entity/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="11" selection-start="3064" selection-end="3064" vertical-scroll-proportion="0.3321859">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/ProductContoller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="45" selection-start="3455" selection-end="3455" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/server/controller/AbstractController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="21" selection-start="909" selection-end="909" vertical-scroll-proportion="0.17429577">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3428#3437#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/server/engine/AbstractEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="19" selection-start="1430" selection-end="1430" vertical-scroll-proportion="0.3321859">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/WayBillsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="32" selection-start="5197" selection-end="5197" vertical-scroll-proportion="1.2493439">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/StoreEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="608" selection-end="608" vertical-scroll-proportion="0.29396325">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/server/db/controllers/AbstractJpaController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="16" selection-start="2726" selection-end="2726" vertical-scroll-proportion="0.6062992">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/GroupEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="407" selection-end="407" vertical-scroll-proportion="-0.22047244">
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/GroupController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="64" selection-start="1597" selection-end="1597" vertical-scroll-proportion="0.13385826">
+        <state line="18" column="91" selection-start="713" selection-end="713" vertical-scroll-proportion="0.27690583">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/WayBillEngine.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="571" selection-end="571" vertical-scroll-proportion="-2.3228347">
+        <state line="19" column="79" selection-start="680" selection-end="680" vertical-scroll-proportion="0.08408072">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/ProductContoller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="23" selection-start="1752" selection-end="2105" vertical-scroll-proportion="0.52130044">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/WayBillsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="28" selection-start="1644" selection-end="2013" vertical-scroll-proportion="0.36098656">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/server/constants/ErrorConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="79" selection-start="297" selection-end="297" vertical-scroll-proportion="0.10089686">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/server/security/SecurityLevel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="13" selection-start="143" selection-end="143" vertical-scroll-proportion="0.13452914">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/server/controller/AbstractResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="73" selection-start="1677" selection-end="1677" vertical-scroll-proportion="0.6894619">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/server/controller/AbstractController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="11" selection-start="787" selection-end="787" vertical-scroll-proportion="0.13452914">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/server/timers/SessionExpirationJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="13" selection-start="297" selection-end="297" vertical-scroll-proportion="0.1513453">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/engine/SellsEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="41" selection-start="1642" selection-end="1642" vertical-scroll-proportion="0.6712565">
+        <state line="41" column="103" selection-start="1858" selection-end="1858" vertical-scroll-proportion="0.47085202">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/server/constants/ConfigConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="57" selection-start="189" selection-end="189" vertical-scroll-proportion="0.08408072">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/server/timers/TimersManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="109" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.72309417">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/terramarket/controller/SellsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="43" selection-start="929" selection-end="929" vertical-scroll-proportion="0.45403588">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

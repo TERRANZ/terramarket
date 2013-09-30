@@ -1,5 +1,7 @@
 package ru.terra.terramarket.network;
 
+import java.util.List;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientFactory;
 import javax.ws.rs.client.WebTarget;
@@ -53,13 +55,13 @@ public class RestClient {
 	}
 
 	public ProductDTO createProduct(ProductDTO prod) {
-		return createRequest().createProduct(SessionHolder.sessionId, prod.name, prod.mincount, prod.barcode, prod.qtype, prod.priceIn, prod.priceOut,
-				prod.group.id);
+		return createRequest().createProduct(SessionHolder.sessionId, prod.name, prod.mincount, prod.barcode, prod.qtype, prod.priceIn,
+				prod.priceOut, prod.group.id);
 	}
 
 	public Boolean updateProduct(ProductDTO prod) {
-		return createRequest().updateProduct(SessionHolder.sessionId, prod.name, prod.mincount, prod.barcode, prod.qtype, prod.priceIn, prod.priceOut,
-				prod.group.id).data;
+		return createRequest().updateProduct(SessionHolder.sessionId, prod.name, prod.mincount, prod.barcode, prod.qtype, prod.priceIn,
+				prod.priceOut, prod.group.id).data;
 	}
 
 	public Boolean updateWayBill(WayBillBean wayBill, WayBillBean oldWb) {
@@ -70,6 +72,19 @@ public class RestClient {
 		if (!wayBill.supplier.equals(oldWb.supplier))
 			return createRequest().updateWayBill(SessionHolder.sessionId, "supplier", wayBill.supplier, wayBill.id).data;
 		return false;
+	}
+
+	public Integer doSell(Integer[] products, Integer[] counts) {
+		String aproducts = "";
+		for (Integer product : products)
+			aproducts += product + ",";
+		aproducts = aproducts.substring(0, aproducts.length() - 1);
+
+		String acounts = "";
+		for (Integer count : counts)
+			acounts += count + ",";
+		acounts = acounts.substring(0, acounts.length() - 1);
+		return createRequest().doSell(SessionHolder.sessionId, aproducts, acounts).data;
 	}
 
 }

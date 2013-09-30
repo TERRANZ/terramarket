@@ -2,6 +2,7 @@ package ru.terra.terramarket.engine;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.terra.server.dto.SimpleDataDTO;
 import ru.terra.server.engine.AbstractEngine;
 import ru.terra.terramarket.db.controllers.ProductJpaController;
 import ru.terra.terramarket.db.controllers.SellsItemJpaController;
@@ -9,8 +10,6 @@ import ru.terra.terramarket.db.controllers.SellsJpaController;
 import ru.terra.terramarket.db.controllers.StoreJpaController;
 import ru.terra.terramarket.db.entity.Sells;
 import ru.terra.terramarket.db.entity.SellsItem;
-import ru.terra.server.dto.CommonDTO;
-import ru.terra.server.dto.SimpleDataDTO;
 import ru.terra.terramarket.dto.sell.SellDTO;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ public class SellsEngine extends AbstractEngine<Sells, SellDTO> {
         super(new SellsJpaController());
     }
 
-    public CommonDTO doSell(String[] products, String[] counts) {
-        logger.info("doint sell");
+    public SimpleDataDTO<Integer> doSell(String[] products, String[] counts) {
+        logger.info("doing sell");
         List<Integer> productList = new ArrayList<>();
         List<Integer> countList = new ArrayList<>();
         for (int i = 0; i < products.length; i++) {
@@ -39,8 +38,8 @@ public class SellsEngine extends AbstractEngine<Sells, SellDTO> {
             countList.add(count);
             try {
                 if (!storeJpaController.isProductAvailable(productJpaController.get(pId), count)) {
-                    CommonDTO errorDTO = new CommonDTO();
-                    errorDTO.errorMessage = "Продукт " + pId + " в количестве " + count + " недоступен на складе!";
+                    SimpleDataDTO<Integer> errorDTO = new SimpleDataDTO<>(-1);
+                    errorDTO.errorMessage = "Item " + pId + " with count " + count + " not available at store!";
                     errorDTO.errorCode = 1;
                     return errorDTO;
                 }
@@ -72,6 +71,7 @@ public class SellsEngine extends AbstractEngine<Sells, SellDTO> {
     public boolean updateDTO(SellDTO sellDTO) {
         return false;
     }
+
     @Override
     public SellDTO getDto(Integer id) {
         return new SellDTO(getBean(id));

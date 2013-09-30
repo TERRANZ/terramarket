@@ -9,18 +9,17 @@ import ru.terra.server.dto.ListDTO;
 import ru.terra.server.dto.SimpleDataDTO;
 import ru.terra.server.engine.AbstractEngine;
 import ru.terra.server.security.SecurityLevel;
-import ru.terra.server.security.SessionsHolder;
 import ru.terra.terramarket.constants.URLConstants;
-import ru.terra.terramarket.db.entity.User;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 
-public abstract class AbstractController<Bean, ReturnDto extends CommonDTO, Engine extends AbstractEngine<Bean, ReturnDto>> {
-    protected SessionsHolder sessionsHolder = SessionsHolder.getInstance();
+public abstract class AbstractController<Bean, ReturnDto extends CommonDTO, Engine extends AbstractEngine<Bean, ReturnDto>> extends AbstractResource {
+
     protected Engine engine;
+
     private Logger logger = Logger.getLogger(AbstractController.class);
 
     public AbstractController(Class<Engine> engineClass) {
@@ -31,37 +30,6 @@ public abstract class AbstractController<Bean, ReturnDto extends CommonDTO, Engi
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-    }
-
-    protected static String getParameter(HttpContext context, String key) {
-        return context.getRequest().getQueryParameters().getFirst(key);
-    }
-
-    protected String extractSessionId(HttpContext context) {
-        return context.getRequest().getCookieNameValueMap().getFirst("JSESSIONID");
-    }
-
-    protected boolean isAuthorized(HttpContext context) {
-        String sessionId = extractSessionId(context);
-        if (sessionId == null)
-            return false;
-        return sessionsHolder.getSession(sessionId) != null;
-    }
-
-    protected Integer getCurrentUserId(HttpContext context) {
-        User u = getCurrentUser(context);
-        return u != null ? u.getId() : null;
-    }
-
-    protected User getCurrentUser(HttpContext context) {
-        return sessionsHolder.getSession(extractSessionId(context)).getUser();
-    }
-
-    protected boolean checkUserCanAccess(HttpContext context, SecurityLevel level) {
-        User u = getCurrentUser(context);
-        if (u != null && u.getLevel() >= level.ordinal())
-            return true;
-        return false;
     }
 
     @GET
