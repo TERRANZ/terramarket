@@ -26,6 +26,7 @@ import ru.terra.terramarket.cache.StoreCache;
 import ru.terra.terramarket.core.Pair;
 import ru.terra.terramarket.dto.store.StoreDTO;
 import ru.terra.terramarket.gui.swt.product.ProductSelectDialog;
+import ru.terra.terramarket.gui.swt.report.ReportStoreRemains;
 import ru.terra.terramarket.network.RestClient;
 
 public class StoreWindow extends Shell {
@@ -47,6 +48,7 @@ public class StoreWindow extends Shell {
 		tiReport.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+			new ReportStoreRemains(getDisplay()).open();
 			}
 		});
 		tiReport.setText("Отчёт по остаткам");

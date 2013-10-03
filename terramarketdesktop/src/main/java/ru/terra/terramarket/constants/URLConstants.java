@@ -1,7 +1,7 @@
 package ru.terra.terramarket.constants;
 
 public class URLConstants {
-	public static final String SERVER_URL = "http://localhost:8080/terramarket/";
+	public static final String SERVER_URL = "http://localhost:18080/terramarket/";
 
     public class Pages {
         public static final String SPRING_LOGIN = "/terramarket/do.login";

@@ -1,7 +1,13 @@
 package ru.terra.terramarket.gui.swt.sell;
 
+import org.eclipse.jface.bindings.keys.KeyStroke;
+import org.eclipse.jface.fieldassist.ContentProposalAdapter;
+import org.eclipse.jface.fieldassist.SimpleContentProposalProvider;
+import org.eclipse.jface.fieldassist.TextContentAdapter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
+import org.eclipse.swt.events.KeyAdapter;
+import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -23,7 +29,9 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
+import ru.terra.terramarket.cache.ProductsCache;
 import ru.terra.terramarket.core.Pair;
+import ru.terra.terramarket.dto.product.ProductDTO;
 import ru.terra.terramarket.gui.swt.product.ProductSelectDialog;
 import ru.terra.terramarket.network.RestClient;
 
@@ -34,6 +42,7 @@ public class DoSellDialog extends Dialog {
 	private Table tblProducts;
 	private Text txtProduct;
 	private static final Integer COLUMN_COUNT = 2;
+	private String[] productNumbers;
 
 	/**
 	 * Create the dialog.
@@ -43,7 +52,7 @@ public class DoSellDialog extends Dialog {
 	 */
 	public DoSellDialog(Shell parent, int style) {
 		super(parent, style);
-		setText("SWT Dialog");
+		setText("Новая продажа");
 	}
 
 	/**
@@ -153,5 +162,41 @@ public class DoSellDialog extends Dialog {
 		tableColumn_2.setWidth(113);
 		tableColumn_2.setText("Количество");
 
+		productNumbers = new String[ProductsCache.getInstance().size()];
+		for (int i = 0; i < productNumbers.length; i++) {
+			productNumbers[i] = ProductsCache.getInstance().getValues().get(i).barcode;
+		}
+
+		setAutoCompletion(txtProduct, null);
+		txtProduct.addKeyListener(new KeyAdapter() {
+			public void keyReleased(KeyEvent ke) {
+				setAutoCompletion(txtProduct, txtProduct.getText());
+			}
+		});
+	}
+
+	private String[] getAllProposals(String text) {
+		String[] proposals = productNumbers;
+		if (text == null || text.length() == 0)
+			proposals = productNumbers;
+		else {
+			for (int i = 0; i < productNumbers.length; i++)
+				proposals[i] = text + i;
+		}
+		return proposals;
+	}
+
+	private void setAutoCompletion(Text text, String value) {
+		try {
+			ContentProposalAdapter adapter = null;
+			String[] defaultProposals = getAllProposals(value);
+			SimpleContentProposalProvider scp = new SimpleContentProposalProvider(defaultProposals);
+			scp.setProposals(defaultProposals);
+			KeyStroke ks = KeyStroke.getInstance("Ctrl+Space");
+			adapter = new ContentProposalAdapter(text, new TextContentAdapter(), scp, ks, null);
+			adapter.setProposalAcceptanceStyle(ContentProposalAdapter.PROPOSAL_REPLACE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
