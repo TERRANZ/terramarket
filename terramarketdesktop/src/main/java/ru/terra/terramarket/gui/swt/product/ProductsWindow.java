@@ -60,7 +60,7 @@ public class ProductsWindow extends Shell {
 			public void widgetSelected(SelectionEvent e) {
 				ProductDTO newProd = new ProductEditDialog(getShell(), SWT.DIALOG_TRIM).open(null);
 				if (newProd != null && newProd.group != null)
-					newProd = new RestClient().createProduct(newProd);
+					newProd = new RestClient(ProductsWindow.this).createProduct(newProd);
 			}
 		});
 		tltmNewItem_1.setText("Добавить товар");
@@ -113,7 +113,7 @@ public class ProductsWindow extends Shell {
 			TableItem currItem = tblProducts.getSelection()[0];
 			ProductDTO product = (ProductDTO) currItem.getData();
 			ProductDTO newProd = new ProductEditDialog(getShell(), SWT.DIALOG_TRIM).open(product);
-			new RestClient().updateProduct(newProd);
+			new RestClient(ProductsWindow.this).updateProduct(newProd);
 			if (newProd != null && newProd.errorCode == 0) {
 				currItem.setData(newProd);
 				currItem.setText(new String[] { newProd.id.toString(), newProd.name, newProd.barcode });

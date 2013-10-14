@@ -1,6 +1,7 @@
 package ru.terra.terramarket.gui.swt.sell;
 
 import org.eclipse.jface.bindings.keys.KeyStroke;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.fieldassist.ContentProposalAdapter;
 import org.eclipse.jface.fieldassist.SimpleContentProposalProvider;
 import org.eclipse.jface.fieldassist.TextContentAdapter;
@@ -30,7 +31,9 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
 import ru.terra.terramarket.cache.ProductsCache;
+import ru.terra.terramarket.core.CacheManager;
 import ru.terra.terramarket.core.Pair;
+import ru.terra.terramarket.dto.SimpleDataDTO;
 import ru.terra.terramarket.gui.swt.product.ProductSelectDialog;
 import ru.terra.terramarket.network.RestClient;
 
@@ -96,7 +99,13 @@ public class DoSellDialog extends Dialog {
 						counts[i] = Integer.parseInt(ti.getText(2));
 						i++;
 					}
-					new RestClient().doSell(products, counts);
+					SimpleDataDTO<Integer> result = new RestClient(shell).doSell(products, counts);
+					if (result.errorCode > 0) {
+						MessageDialog.openError(shell, "Ошибка при проведении продажи", result.errorMessage);
+					} else {
+						CacheManager.getInstance().fillCache(shell);
+						shell.close();
+					}
 				}
 			}
 		});

@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.swt.widgets.Shell;
+
 /**
  * User: Vadim Korostelev Date: 21.08.13 Time: 12:38
  */
@@ -31,5 +33,5 @@ public abstract class AbstractCache<K, V> {
 		return cacheMap.get(key);
 	}
 	
-	public abstract void fill();
+	public abstract void fill(Shell shell);
 }

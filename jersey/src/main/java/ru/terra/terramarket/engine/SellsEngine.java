@@ -38,8 +38,10 @@ public class SellsEngine extends AbstractEngine<Sells, SellDTO> {
             countList.add(count);
             try {
                 if (!storeEngine.isProductAvailable(pId, count)) {
+                    String message = "Item " + productEngine.getDto(pId).name + " with count " + count + " not available at store!";
+                    logger.info(message);
                     SimpleDataDTO<Integer> errorDTO = new SimpleDataDTO<>(-1);
-                    errorDTO.errorMessage = "Item " + pId + " with count " + count + " not available at store!";
+                    errorDTO.errorMessage = message;
                     errorDTO.errorCode = 1;
                     return errorDTO;
                 }

@@ -77,7 +77,7 @@ public class MainWindow {
 			public void widgetSelected(SelectionEvent e) {
 				WayBillBean wb = new EditWayBillDialog(shell, SWT.SHELL_TRIM).open(null);
 				if (wb != null) {
-					WayBillDTO newwb = new RestClient().createWB(wb);
+					WayBillDTO newwb = new RestClient(shell).createWB(wb);
 					if (newwb.errorCode == 0) {
 						wbc.add(newwb.id, newwb);
 					}
@@ -108,7 +108,7 @@ public class MainWindow {
 				ProductDTO newProd = new ProductEditDialog(shell, SWT.DIALOG_TRIM).open(null);
 				if (newProd != null && newProd.filled())
 					try {
-						newProd = new RestClient().createProduct(newProd);
+						newProd = new RestClient(shell).createProduct(newProd);
 					} catch (Exception ex) {
 						if (ex instanceof InternalServerErrorException)
 							MessageDialog.openError(shell, "Ошибка при сохранении товара", "Ошибка сервера");
@@ -156,7 +156,7 @@ public class MainWindow {
 		Display.getDefault().asyncExec(new Runnable() {
 			@Override
 			public void run() {
-				CacheManager.getInstance().fillCache();
+				CacheManager.getInstance().fillCache(shell);
 			}
 		});
 		shell.open();

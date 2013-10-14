@@ -57,7 +57,7 @@ public class StoreWindow extends Shell {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				if (tblProducts.getItemCount() > 0) {
-					RestClient restClient = new RestClient();
+					RestClient restClient = new RestClient(StoreWindow.this);
 					for (TableItem ti : tblProducts.getItems()) {
 						Pair<Integer, Boolean> productHolder = (Pair<Integer, Boolean>) ti.getData();
 						if (productHolder.getValue()) {

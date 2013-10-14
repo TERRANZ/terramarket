@@ -91,13 +91,14 @@ public class LoginDialog extends Dialog {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				ExecutorService executor = Executors.newFixedThreadPool(1);
-				Future<Boolean> submit = executor.submit(new LoginTask(txtLogin.getText(), txtPass.getText()));
+				Future<Boolean> submit = executor.submit(new LoginTask(shell, txtLogin.getText(), txtPass.getText()));
 				try {
 					result = submit.get();
 					if (result) {
 						ConfigService.getInstance().setConfig(ConfigConstants.LOGIN, txtLogin.getText());
 						ConfigService.getInstance().setConfig(ConfigConstants.PASS, txtPass.getText());
-						//MessageDialog.openInformation(shell, "Вход", "Вход успешен");
+						// MessageDialog.openInformation(shell, "Вход",
+						// "Вход успешен");
 						shell.dispose();
 					} else {
 						MessageDialog.openInformation(shell, "Вход", "Вход не удался");

@@ -1,6 +1,7 @@
 package ru.terra.terramarket.core;
 
 import org.apache.log4j.Logger;
+import org.eclipse.swt.widgets.Shell;
 
 import ru.terra.terramarket.cache.GroupCache;
 import ru.terra.terramarket.cache.ProductsCache;
@@ -19,13 +20,13 @@ public class CacheManager {
 		return instance;
 	}
 
-	public void fillCache() {
+	public void fillCache(Shell shell) {
 		try {
-			ProductsCache.getInstance().fill();
-			GroupCache.getInstance().fill();
-			WayBillsCache.getInstance().fill();
-			StoreCache.getInstance().fill();
-			SellsCache.getInstance().fill();
+			ProductsCache.getInstance().fill(shell);
+			GroupCache.getInstance().fill(shell);
+			WayBillsCache.getInstance().fill(shell);
+			StoreCache.getInstance().fill(shell);
+			SellsCache.getInstance().fill(shell);
 		} catch (Exception e) {
 			logger.error("Unable to load", e);
 		}

@@ -46,7 +46,7 @@ public class WayBillsWindow extends Shell {
 					TableItem ti = new TableItem(tblWBs, SWT.NONE);
 					ti.setData(wb);
 					ti.setText(new String[] { wb.date.toString(), wb.title });
-					WayBillDTO newwb = new RestClient().createWB(wb);
+					WayBillDTO newwb = new RestClient(WayBillsWindow.this).createWB(wb);
 					if (newwb.errorCode == 0) {
 						wbc.add(newwb.id, newwb);
 						load();
