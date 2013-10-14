@@ -84,11 +84,17 @@ public abstract class AbstractEngine<Entity, Dto extends CommonDTO> {
 //    }
 
     public List<Dto> listDtos(Boolean all, Integer page, Integer perPage) {
-        List<Dto> ret = new ArrayList<>();
-        for (Entity entity : listBeans(all, page, perPage)) {
-            ret.add(entityToDto(entity));
+        try {
+            List<Dto> ret = new ArrayList<>();
+
+            for (Entity entity : listBeans(all, page, perPage)) {
+                ret.add(entityToDto(entity));
+            }
+            return ret;
+        } catch (Exception e) {
+            logger.error("Unable to list dtos", e);
+            return null;
         }
-        return ret;
     }
 
     public abstract Dto getDto(Integer id);

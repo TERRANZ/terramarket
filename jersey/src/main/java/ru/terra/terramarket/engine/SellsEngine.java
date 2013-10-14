@@ -12,6 +12,7 @@ import ru.terra.terramarket.db.entity.User;
 import ru.terra.terramarket.dto.sell.SellDTO;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -49,6 +50,7 @@ public class SellsEngine extends AbstractEngine<Sells, SellDTO> {
 
         Sells sell = new Sells();
         sell.setUser(user);
+        sell.setSelldate(new Date());
         createBean(sell);
         for (int i = 0; i < productList.size(); i++) {
             try {
