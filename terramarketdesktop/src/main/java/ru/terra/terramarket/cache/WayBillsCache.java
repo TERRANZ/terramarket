@@ -4,6 +4,7 @@ import ru.terra.terramarket.dto.ListDTO;
 import ru.terra.terramarket.dto.waybill.WayBillDTO;
 import ru.terra.terramarket.network.RestClient;
 
+@Cache
 public class WayBillsCache extends AbstractCache<Integer, WayBillDTO> {
 	private static WayBillsCache instance = new WayBillsCache();
 

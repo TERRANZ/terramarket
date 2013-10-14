@@ -59,7 +59,7 @@ public class ProductsWindow extends Shell {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				ProductDTO newProd = new ProductEditDialog(getShell(), SWT.DIALOG_TRIM).open(null);
-				if (newProd != null)
+				if (newProd != null && newProd.group != null)
 					newProd = new RestClient().createProduct(newProd);
 			}
 		});

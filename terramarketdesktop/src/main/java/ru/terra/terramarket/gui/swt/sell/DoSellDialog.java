@@ -31,7 +31,6 @@ import org.eclipse.swt.widgets.ToolItem;
 
 import ru.terra.terramarket.cache.ProductsCache;
 import ru.terra.terramarket.core.Pair;
-import ru.terra.terramarket.dto.product.ProductDTO;
 import ru.terra.terramarket.gui.swt.product.ProductSelectDialog;
 import ru.terra.terramarket.network.RestClient;
 

@@ -1,10 +1,10 @@
 package ru.terra.terramarket.gui.swt.report;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.browser.Browser;
-import org.eclipse.swt.layout.FillLayout;
 
 public class ReportStoreRemains extends Shell {
 
@@ -17,8 +17,6 @@ public class ReportStoreRemains extends Shell {
 		super(display, SWT.SHELL_TRIM);
 		setText("Отчёт по остаткам");
 		setLayout(new FillLayout(SWT.HORIZONTAL));
-
-		//Browser bReport = new Browser(this, SWT.NONE);
 		createContents();
 	}
 

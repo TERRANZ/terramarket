@@ -21,7 +21,6 @@ import org.eclipse.swt.widgets.ToolItem;
 import ru.terra.terramarket.cache.SellsCache;
 import ru.terra.terramarket.dto.sell.SellDTO;
 import ru.terra.terramarket.dto.sell.SellItemDTO;
-import ru.terra.terramarket.dto.store.StoreDTO;
 
 public class SellsWindow extends Shell {
 	private Table table;

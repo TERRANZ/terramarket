@@ -4,11 +4,7 @@ import ru.terra.terramarket.dto.ListDTO;
 import ru.terra.terramarket.dto.product.ProductDTO;
 import ru.terra.terramarket.network.RestClient;
 
-/**
- * User: Vadim Korostelev
- * Date: 21.08.13
- * Time: 12:41
- */
+@Cache
 public class ProductsCache extends AbstractCache<Integer, ProductDTO> {
     private static ProductsCache instance = new ProductsCache();
 

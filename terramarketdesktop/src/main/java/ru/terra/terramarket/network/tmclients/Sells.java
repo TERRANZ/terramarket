@@ -9,7 +9,6 @@ import javax.ws.rs.QueryParam;
 import ru.terra.terramarket.constants.URLConstants;
 import ru.terra.terramarket.dto.ListDTO;
 import ru.terra.terramarket.dto.SimpleDataDTO;
-import ru.terra.terramarket.dto.product.ProductDTO;
 import ru.terra.terramarket.dto.sell.SellDTO;
 
 public interface Sells {

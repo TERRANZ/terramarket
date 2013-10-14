@@ -4,6 +4,7 @@ import ru.terra.terramarket.dto.ListDTO;
 import ru.terra.terramarket.dto.store.StoreDTO;
 import ru.terra.terramarket.network.RestClient;
 
+@Cache
 public class StoreCache extends AbstractCache<Integer, StoreDTO> {
 	private static StoreCache instance = new StoreCache();
 
