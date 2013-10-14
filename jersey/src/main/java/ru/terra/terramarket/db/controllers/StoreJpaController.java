@@ -11,6 +11,7 @@ import ru.terra.terramarket.db.entity.Store;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import java.io.Serializable;
 
@@ -125,6 +126,8 @@ public class StoreJpaController extends AbstractJpaController<Store> implements 
             em = getEntityManager();
             Query q = em.createNamedQuery("Store.findByProduct").setParameter("prod", product);
             return (Store) q.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
         } finally {
             if (em != null)
                 em.close();

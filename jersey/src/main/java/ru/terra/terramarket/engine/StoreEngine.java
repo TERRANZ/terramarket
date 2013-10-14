@@ -55,6 +55,8 @@ public class StoreEngine extends AbstractEngine<Store, StoreDTO> {
 
     public boolean decreaseProducts(Integer id, Integer count) {
         Store store = ((StoreJpaController) jpaController).findByProduct(productEngine.getBean(id));
+        if (store == null)
+            return false;
         store.setCount(store.getCount() - count);
         try {
             jpaController.update(store);
