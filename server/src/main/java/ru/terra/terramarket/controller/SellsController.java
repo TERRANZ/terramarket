@@ -9,6 +9,7 @@ import ru.terra.server.dto.SimpleDataDTO;
 import ru.terra.server.security.SecurityLevel;
 import ru.terra.terramarket.constants.URLConstants;
 import ru.terra.terramarket.db.entity.Sells;
+import ru.terra.terramarket.db.entity.User;
 import ru.terra.terramarket.dto.sell.SellDTO;
 import ru.terra.terramarket.engine.SellsEngine;
 
@@ -46,7 +47,7 @@ public class SellsController extends AbstractController<Sells, SellDTO, SellsEng
         logger.info("Doing sell with products = " + products + " and counts = " + counts);
         String[] parsedProds = products.split(",");
         String[] parsedCounts = counts.split(",");
-        return engine.doSell(getCurrentUser(hc), parsedProds, parsedCounts);
+        return engine.doSell((User) getCurrentUser(hc), parsedProds, parsedCounts);
     }
 
 }

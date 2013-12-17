@@ -1,7 +1,6 @@
 package ru.terra.server.security;
 
-import ru.terra.terramarket.db.entity.User;
-
+import ru.terra.server.db.entity.AbstractUser;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -12,11 +11,11 @@ import java.util.HashMap;
  */
 public class SessionInfo {
     private String sessionid;
-    private User user;
+    private AbstractUser user;
     private HashMap<String, String> parameters = new HashMap<>();
     private Date sessionAccessDate = new Date();
 
-    public SessionInfo(String sessionid, User user) {
+    public SessionInfo(String sessionid, AbstractUser user) {
         this.sessionid = sessionid;
         this.user = user;
     }
@@ -29,11 +28,11 @@ public class SessionInfo {
         this.sessionid = sessionid;
     }
 
-    public User getUser() {
+    public AbstractUser getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(AbstractUser user) {
         this.user = user;
     }
 

@@ -17,7 +17,7 @@ public class Main {
     protected static HttpServer startServer() throws IOException {
         String url = "http://" + Config.getConfig().getValue(ConfigConstants.SERVER_ADDR, ConfigConstants.SERVER_ADDR_DEFAULT);
         URI uri = UriBuilder.fromUri(url).port(18080).build();
-        System.out.println("Starting grizzly...");
+        System.out.println("Starting terra market server...");
         WebappContext context = new WebappContext("context");
         HttpServer webserver = GrizzlyServerFactory.createHttpServer(uri);
         context.deploy(webserver);

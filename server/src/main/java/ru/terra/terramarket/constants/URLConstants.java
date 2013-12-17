@@ -1,6 +1,8 @@
 package ru.terra.terramarket.constants;
 
-public class URLConstants {
+import ru.terra.server.constants.CoreUrlConstants;
+
+public class URLConstants extends CoreUrlConstants {
     public static final String SERVER_URL = "http://terranout.ath.cx/terramarket/";
 
     public class Pages {
@@ -28,10 +30,6 @@ public class URLConstants {
     }
 
     public class DoJson {
-
-        public static final String DO_LIST = "do.list.json";
-        public static final String DO_GET = "do.get.json";
-        public static final String DO_DEL = "do.delete.json";
         public static final String DO_CREATE = "do.create.json";
         public static final String DO_UPDATE = "do.update.json";
 

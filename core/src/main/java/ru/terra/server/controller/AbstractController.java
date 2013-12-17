@@ -9,7 +9,7 @@ import ru.terra.server.dto.ListDTO;
 import ru.terra.server.dto.SimpleDataDTO;
 import ru.terra.server.engine.AbstractEngine;
 import ru.terra.server.security.SecurityLevel;
-import ru.terra.terramarket.constants.URLConstants;
+import ru.terra.server.constants.CoreUrlConstants;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -33,7 +33,7 @@ public abstract class AbstractController<Bean, ReturnDto extends CommonDTO, Engi
     }
 
     @GET
-    @Path(URLConstants.DoJson.DO_LIST)
+    @Path(CoreUrlConstants.DoJson.DO_LIST)
     public ListDTO<ReturnDto> list(@Context HttpContext hc, @QueryParam("all") boolean all, @QueryParam("page") Integer page, @QueryParam("perpage") Integer perpage) {
         logger.info("Loading list of dtos");
         if (engine == null)
@@ -44,7 +44,7 @@ public abstract class AbstractController<Bean, ReturnDto extends CommonDTO, Engi
     }
 
     @GET
-    @Path(URLConstants.DoJson.DO_GET)
+    @Path(CoreUrlConstants.DoJson.DO_GET)
     public ReturnDto get(@Context HttpContext hc, @QueryParam("id") Integer id) {
         if (engine == null)
             throw new NotImplementedException();
@@ -52,7 +52,7 @@ public abstract class AbstractController<Bean, ReturnDto extends CommonDTO, Engi
     }
 
     @GET
-    @Path(URLConstants.DoJson.DO_DEL)
+    @Path(CoreUrlConstants.DoJson.DO_DEL)
     public SimpleDataDTO<Boolean> delete(@Context HttpContext hc, @QueryParam("id") Integer id) {
         if (engine == null)
             throw new NotImplementedException();

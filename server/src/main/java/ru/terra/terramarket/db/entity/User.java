@@ -5,6 +5,7 @@
 package ru.terra.terramarket.db.entity;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import ru.terra.server.db.entity.AbstractUser;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -26,19 +27,8 @@ import java.util.List;
         @NamedQuery(name = "User.findByLogin", query = "SELECT u FROM User u WHERE u.login = :login"),
         @NamedQuery(name = "User.findByLoginAndPass", query = "SELECT u FROM User u WHERE u.login = :login AND u.pass = :pass"),
         @NamedQuery(name = "User.findByPass", query = "SELECT u FROM User u WHERE u.pass = :pass")})
-public class User implements Serializable {
+public class User extends AbstractUser implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id", nullable = false)
-    private Integer id;
-    @Basic(optional = false)
-    @Column(name = "name", nullable = false, length = 512)
-    private String name;
-    @Basic(optional = false)
-    @Column(name = "level", nullable = false)
-    private int level;
     @Basic(optional = false)
     @Column(name = "login", nullable = false, length = 128)
     private String login;
@@ -60,43 +50,14 @@ public class User implements Serializable {
         this.sellsList = sellsList;
     }
 
-    public User() {
-    }
-
-    public User(Integer id) {
-        this.id = id;
-    }
-
     public User(Integer id, String name, int level, String login, String pass) {
-        this.id = id;
-        this.name = name;
-        this.level = level;
+        super(id, level, name);
         this.login = login;
         this.pass = pass;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
+    public User() {
+        super(null, 0, "");
     }
 
     public String getLogin() {

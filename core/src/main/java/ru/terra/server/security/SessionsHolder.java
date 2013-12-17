@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.terra.server.config.Config;
 import ru.terra.server.constants.ConfigConstants;
-import ru.terra.terramarket.db.entity.User;
+import ru.terra.server.db.entity.AbstractUser;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -29,7 +29,7 @@ public class SessionsHolder {
         return instance;
     }
 
-    public synchronized boolean addUser(String session, User user) {
+    public synchronized boolean addUser(String session, AbstractUser user) {
         sessions.add(new SessionInfo(session, user));
         logger.info("Added session " + session + " for user " + user.getName());
         return true;
@@ -68,7 +68,7 @@ public class SessionsHolder {
         return ret;
     }
 
-    public synchronized String registerUserSession(User u) {
+    public synchronized String registerUserSession(AbstractUser u) {
         String sessionId = getSession(u.getId());
         if (sessionId == null) {
             sessionId = UUID.randomUUID().toString();
