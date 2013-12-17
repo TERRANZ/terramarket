@@ -46,6 +46,19 @@ public class User extends AbstractUser implements Serializable {
         return sellsList;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id", nullable = false)
+    protected Integer id;
+
+    @Basic(optional = false)
+    @Column(name = "level", nullable = false)
+    protected int level;
+    @Basic(optional = false)
+    @Column(name = "name", nullable = false, length = 512)
+    protected String name;
+
     public void setSellsList(List<Sells> sellsList) {
         this.sellsList = sellsList;
     }

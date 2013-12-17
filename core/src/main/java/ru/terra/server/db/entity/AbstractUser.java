@@ -19,7 +19,7 @@ public class AbstractUser {
     protected int level;
     @Basic(optional = false)
     @Column(name = "name", nullable = false, length = 512)
-    private String name;
+    protected String name;
 
     public Integer getId() {
         return id;
