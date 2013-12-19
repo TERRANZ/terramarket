@@ -7,18 +7,8 @@ import javax.persistence.*;
  * Time: 16:12
  */
 public class AbstractUser {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id", nullable = false)
     protected Integer id;
-
-    @Basic(optional = false)
-    @Column(name = "level", nullable = false)
     protected int level;
-    @Basic(optional = false)
-    @Column(name = "name", nullable = false, length = 512)
     protected String name;
 
     public Integer getId() {
