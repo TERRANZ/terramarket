@@ -32,7 +32,7 @@
 		<dependency>
 			<groupId>org.eclipse.swt</groupId>
 			<artifactId>org.eclipse.swt.gtk.linux.x86</artifactId>
-			<version>3.7.2</version>
+			<version>4.3</version>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
