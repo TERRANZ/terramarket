@@ -1,6 +1,5 @@
 package ru.terra.terramarket.gui.swt.product;
 
-
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -20,9 +19,11 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
 import ru.terra.terramarket.cache.GroupCache;
+import ru.terra.terramarket.core.CacheManager;
 import ru.terra.terramarket.dto.product.ProductDTO;
+import ru.terra.terramarket.gui.swt.AbstractEditDialog;
 
-public class ProductEditDialog extends Dialog {
+public class ProductEditDialog extends AbstractEditDialog<ProductDTO> {
 
 	protected ProductDTO result;
 	protected Shell shell;
@@ -34,6 +35,7 @@ public class ProductEditDialog extends Dialog {
 	private Spinner spPriceIn;
 	private Spinner spPriceOut;
 	private String[] groups;
+	private GroupCache groupCache = (GroupCache) CacheManager.getInstance().getCache(GroupCache.class);
 
 	/**
 	 * Create the dialog.
@@ -42,7 +44,7 @@ public class ProductEditDialog extends Dialog {
 	 * @param style
 	 */
 	public ProductEditDialog(Shell parent, int style) {
-		super(parent, style);
+		super(parent);
 		setText("Товар");
 	}
 
@@ -105,7 +107,7 @@ public class ProductEditDialog extends Dialog {
 				result.name = txtName.getText();
 				result.barcode = txtBarcode.getText();
 
-				result.group = GroupCache.getInstance().getValues().get(txtGroup.getSelectionIndex());
+				result.group = groupCache.getValues().get(txtGroup.getSelectionIndex());
 				result.qtype = 0;// TODO
 				result.mincount = spMincount.getSelection();
 				result.priceIn = spPriceIn.getSelection();
@@ -178,9 +180,9 @@ public class ProductEditDialog extends Dialog {
 		lblNewLabel_6.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblNewLabel_6.setText("Группа");
 
-		groups = new String[GroupCache.getInstance().size()];
+		groups = new String[groupCache.size()];
 		for (int i = 0; i < groups.length; i++) {
-			groups[i] = GroupCache.getInstance().getValues().get(i).name;
+			groups[i] = groupCache.getValues().get(i).name;
 		}
 
 		txtGroup = new Combo(composite, SWT.BORDER);
@@ -188,10 +190,20 @@ public class ProductEditDialog extends Dialog {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
 				System.out.println("selected " + txtGroup.getItem(txtGroup.getSelectionIndex()) + " is in cache: "
-						+ GroupCache.getInstance().getValues().get(txtGroup.getSelectionIndex()).name);
+						+ groupCache.getValues().get(txtGroup.getSelectionIndex()).name);
 			}
 		});
 		txtGroup.setItems(groups);
 		txtGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+	}
+
+	@Override
+	public ProductDTO getNew() {
+		return open(null);
+	}
+
+	@Override
+	public ProductDTO edit(ProductDTO entity) {
+		return open(entity);
 	}
 }

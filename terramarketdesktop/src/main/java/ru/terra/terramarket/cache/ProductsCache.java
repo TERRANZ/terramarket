@@ -7,16 +7,9 @@ import ru.terra.terramarket.dto.product.ProductDTO;
 import ru.terra.terramarket.network.RestClient;
 
 @Cache
-public class ProductsCache extends AbstractCache<Integer, ProductDTO> {
-    private static ProductsCache instance = new ProductsCache();
+public class ProductsCache extends AbstractCache<ProductDTO> {
 
-    public static ProductsCache getInstance() {
-        return instance;
-    }
-
-    private ProductsCache() {
-    }
-
+  
     @Override
     public void fill(Shell shell) {
         ListDTO<ProductDTO> prods = new RestClient(shell).loadProducts();

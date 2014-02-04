@@ -7,15 +7,8 @@ import ru.terra.terramarket.dto.waybill.WayBillDTO;
 import ru.terra.terramarket.network.RestClient;
 
 @Cache
-public class WayBillsCache extends AbstractCache<Integer, WayBillDTO> {
-	private static WayBillsCache instance = new WayBillsCache();
+public class WayBillsCache extends AbstractCache<WayBillDTO> {
 
-	public static WayBillsCache getInstance() {
-		return instance;
-	}
-
-	private WayBillsCache() {
-	}
 	@Override
 	public void fill(Shell shell) {
 		ListDTO<WayBillDTO> wbs = new RestClient(shell).loadWBs();

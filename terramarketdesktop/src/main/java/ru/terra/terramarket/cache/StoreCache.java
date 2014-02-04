@@ -7,15 +7,9 @@ import ru.terra.terramarket.dto.store.StoreDTO;
 import ru.terra.terramarket.network.RestClient;
 
 @Cache
-public class StoreCache extends AbstractCache<Integer, StoreDTO> {
-	private static StoreCache instance = new StoreCache();
+public class StoreCache extends AbstractCache<StoreDTO> {
 
-	public static StoreCache getInstance() {
-		return instance;
-	}
 
-	private StoreCache() {
-	}
 
 	@Override
 	public void fill(Shell shell) {

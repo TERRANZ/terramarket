@@ -19,8 +19,10 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
 import ru.terra.terramarket.cache.SellsCache;
+import ru.terra.terramarket.core.CacheManager;
 import ru.terra.terramarket.dto.sell.SellDTO;
 import ru.terra.terramarket.dto.sell.SellItemDTO;
+
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 
@@ -105,7 +107,7 @@ public class SellsWindow extends Shell {
 	}
 
 	private void load() {
-		for (SellDTO dto : SellsCache.getInstance().getValues()) {
+		for (SellDTO dto : ((SellsCache) CacheManager.getInstance().getCache(SellsCache.class)).getValues()) {
 			TableItem ti = new TableItem(table, SWT.NONE);
 			Integer sum = 0;
 			for (SellItemDTO si : dto.sellItems) {

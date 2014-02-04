@@ -15,6 +15,7 @@ import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.swt.widgets.TableColumn;
 
 import ru.terra.terramarket.cache.StoreCache;
+import ru.terra.terramarket.core.CacheManager;
 import ru.terra.terramarket.dto.store.StoreDTO;
 
 public class ReportStoreRemains extends Shell {
@@ -68,7 +69,7 @@ public class ReportStoreRemains extends Shell {
 	}
 
 	public void load() {
-		for (StoreDTO store : StoreCache.getInstance().getValues()) {
+		for (StoreDTO store : ((StoreCache) CacheManager.getInstance().getCache(StoreCache.class)).getValues()) {
 			if (store.count <= store.product.mincount) {
 				TableItem ti = new TableItem(tblReport, SWT.NONE);
 				ti.setText(new String[] { store.product.name, store.product.mincount.toString(), store.count.toString() });

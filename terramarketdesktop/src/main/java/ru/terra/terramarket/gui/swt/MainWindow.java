@@ -16,6 +16,7 @@ import ru.terra.terramarket.cache.WayBillsCache;
 import ru.terra.terramarket.core.CacheManager;
 import ru.terra.terramarket.dto.product.ProductDTO;
 import ru.terra.terramarket.dto.waybill.WayBillDTO;
+import ru.terra.terramarket.gui.abstracted.ProductListWindow;
 import ru.terra.terramarket.gui.swt.group.GroupsWindow;
 import ru.terra.terramarket.gui.swt.product.ProductEditDialog;
 import ru.terra.terramarket.gui.swt.product.ProductsWindow;
@@ -27,7 +28,7 @@ import ru.terra.terramarket.gui.swt.waybills.WayBillsWindow;
 import ru.terra.terramarket.network.RestClient;
 
 public class MainWindow {
-	private WayBillsCache wbc = WayBillsCache.getInstance();
+	private WayBillsCache wbc = (WayBillsCache) CacheManager.getInstance().getCache(WayBillsCache.class);
 
 	/**
 	 * Open the window.
@@ -122,7 +123,8 @@ public class MainWindow {
 		miProductsManage.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				new ProductsWindow(display).open();
+				//new ProductsWindow(display).open();
+				new ProductListWindow(display).open();
 			}
 		});
 		miProductsManage.setText("Управление...");

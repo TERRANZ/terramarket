@@ -17,6 +17,7 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
 import ru.terra.terramarket.cache.WayBillsCache;
+import ru.terra.terramarket.core.CacheManager;
 import ru.terra.terramarket.dto.waybill.WayBillDTO;
 import ru.terra.terramarket.gui.swt.waybills.EditWayBillDialog.WayBillBean;
 import ru.terra.terramarket.network.RestClient;
@@ -24,7 +25,7 @@ import ru.terra.terramarket.network.RestClient;
 public class WayBillsWindow extends Shell {
 	private Table tblWBs;
 	private Boolean isEdited = false;
-	private WayBillsCache wbc = WayBillsCache.getInstance();	
+	private WayBillsCache wbc = (WayBillsCache) CacheManager.getInstance().getCache(WayBillsCache.class);
 
 	/**
 	 * Create the shell.

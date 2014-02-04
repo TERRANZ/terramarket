@@ -7,16 +7,7 @@ import ru.terra.terramarket.dto.group.GroupDTO;
 import ru.terra.terramarket.network.RestClient;
 
 @Cache
-public class GroupCache extends AbstractCache<Integer, GroupDTO> {
-	private static GroupCache instance = new GroupCache();
-
-	public static GroupCache getInstance() {
-		return instance;
-	}
-
-	private GroupCache() {
-	}
-
+public class GroupCache extends AbstractCache<GroupDTO> {
 	@Override
 	public void fill(Shell shell) {
 		ListDTO<GroupDTO> groups = new RestClient(shell).loadGroups();

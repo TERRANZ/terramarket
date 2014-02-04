@@ -23,6 +23,7 @@ import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 
 import ru.terra.terramarket.cache.GroupCache;
+import ru.terra.terramarket.core.CacheManager;
 import ru.terra.terramarket.dto.group.GroupDTO;
 import ru.terra.terramarket.dto.product.ProductDTO;
 import ru.terra.terramarket.gui.swt.group.GroupsWindow;
@@ -31,7 +32,7 @@ import ru.terra.terramarket.network.RestClient;
 public class ProductsWindow extends Shell {
 	private Table tblProducts;
 	private Tree trGroups;
-	private GroupCache groupCache = GroupCache.getInstance();
+	private GroupCache groupCache = (GroupCache) CacheManager.getInstance().getCache(GroupCache.class);
 	private GroupDTO currGroup;
 
 	/**

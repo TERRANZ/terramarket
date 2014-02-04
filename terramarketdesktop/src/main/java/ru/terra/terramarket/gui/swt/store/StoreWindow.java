@@ -23,6 +23,7 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
 import ru.terra.terramarket.cache.StoreCache;
+import ru.terra.terramarket.core.CacheManager;
 import ru.terra.terramarket.core.Pair;
 import ru.terra.terramarket.dto.store.StoreDTO;
 import ru.terra.terramarket.gui.swt.product.ProductSelectDialog;
@@ -48,7 +49,7 @@ public class StoreWindow extends Shell {
 		tiReport.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-			new ReportStoreRemains(getDisplay()).open();
+				new ReportStoreRemains(getDisplay()).open();
 			}
 		});
 		tiReport.setText("Отчёт по остаткам");
@@ -139,7 +140,7 @@ public class StoreWindow extends Shell {
 	}
 
 	private void load() {
-		for (StoreDTO storeDTO : StoreCache.getInstance().getValues()) {
+		for (StoreDTO storeDTO : ((StoreCache) CacheManager.getInstance().getCache(StoreCache.class)).getValues()) {
 			final TableItem item = new TableItem(tblProducts, SWT.NONE);
 			item.setData(new Pair<Integer, Boolean>(storeDTO.product.id, false));
 			item.setText(new String[] { storeDTO.product.name, storeDTO.updated.toString(), String.valueOf(storeDTO.count) });

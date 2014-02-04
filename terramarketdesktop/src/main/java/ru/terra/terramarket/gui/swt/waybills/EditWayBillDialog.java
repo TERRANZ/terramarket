@@ -29,6 +29,7 @@ import org.eclipse.swt.widgets.ToolItem;
 
 import ru.terra.terramarket.cache.ProductsCache;
 import ru.terra.terramarket.cache.WayBillsCache;
+import ru.terra.terramarket.core.CacheManager;
 import ru.terra.terramarket.core.Pair;
 import ru.terra.terramarket.gui.swt.product.ProductSelectDialog;
 
@@ -49,9 +50,9 @@ public class EditWayBillDialog extends Dialog {
 	private TableColumn tableColumn;
 	private TableColumn tableColumn_1;
 	private TableColumn tableColumn_2;
-	private WayBillsCache wbc = WayBillsCache.getInstance();
+	private WayBillsCache wbc = (WayBillsCache) CacheManager.getInstance().getCache(WayBillsCache.class);
 	private static final Integer COLUMN_COUNT = 2;
-	private ProductsCache pc = ProductsCache.getInstance();
+	private ProductsCache productsCache = (ProductsCache) CacheManager.getInstance().getCache(ProductsCache.class);
 
 	public static class WayBillBean {
 		public String title, supplier;
@@ -108,7 +109,7 @@ public class EditWayBillDialog extends Dialog {
 		txtTitle.setText(bean.title);
 		txtSupplier.setText(bean.supplier);
 		for (int i = 0; i < bean.counts.length; i++) {
-			Pair<Integer, String> product = new Pair<Integer, String>(bean.products[i], pc.get(bean.products[i]).name);
+			Pair<Integer, String> product = new Pair<Integer, String>(bean.products[i], productsCache.get(bean.products[i]).name);
 			TableItem ti = new TableItem(tblProducts, SWT.NONE);
 			ti.setText(new String[] { String.valueOf(i), product.getValue(), String.valueOf(bean.counts[i]) });
 			ti.setData(product);

@@ -45,6 +45,7 @@ public class DoSellDialog extends Dialog {
 	private Text txtProduct;
 	private static final Integer COLUMN_COUNT = 2;
 	private String[] productNumbers;
+	private ProductsCache productsCache = (ProductsCache) CacheManager.getInstance().getCache(ProductsCache.class);
 
 	/**
 	 * Create the dialog.
@@ -170,9 +171,9 @@ public class DoSellDialog extends Dialog {
 		tableColumn_2.setWidth(113);
 		tableColumn_2.setText("Количество");
 
-		productNumbers = new String[ProductsCache.getInstance().size()];
+		productNumbers = new String[productsCache.size()];
 		for (int i = 0; i < productNumbers.length; i++) {
-			productNumbers[i] = ProductsCache.getInstance().getValues().get(i).barcode;
+			productNumbers[i] = productsCache.getValues().get(i).barcode;
 		}
 
 		setAutoCompletion(txtProduct, null);

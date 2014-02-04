@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
 import ru.terra.terramarket.cache.ProductsCache;
+import ru.terra.terramarket.core.CacheManager;
 import ru.terra.terramarket.core.Pair;
 import ru.terra.terramarket.dto.product.ProductDTO;
 
@@ -30,7 +31,7 @@ public class ProductSelectDialog extends Dialog {
 	protected Shell shell;
 	private Table tblProducts;
 	private Text txtSearch;
-	private ProductsCache productsCache = ProductsCache.getInstance();
+	private ProductsCache productsCache = (ProductsCache) CacheManager.getInstance().getCache(ProductsCache.class);
 
 	/**
 	 * Create the dialog.
