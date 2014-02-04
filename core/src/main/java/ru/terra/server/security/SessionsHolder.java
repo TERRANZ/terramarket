@@ -91,11 +91,12 @@ public class SessionsHolder {
     }
 
     public synchronized String getSession(Integer uid) {
-        for (SessionInfo si : sessions)
-            if (si.getUser().getId().equals(uid)) {
-                si.setSessionAccessDate(new Date());
-                return si.getSessionid();
-            }
+        if (uid != null)
+            for (SessionInfo si : sessions)
+                if (si.getUser() != null && uid.equals(si.getUser().getId())) {
+                    si.setSessionAccessDate(new Date());
+                    return si.getSessionid();
+                }
         return null;
     }
 }

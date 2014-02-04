@@ -21,6 +21,8 @@ import org.eclipse.swt.widgets.ToolItem;
 import ru.terra.terramarket.cache.SellsCache;
 import ru.terra.terramarket.dto.sell.SellDTO;
 import ru.terra.terramarket.dto.sell.SellItemDTO;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
 
 public class SellsWindow extends Shell {
 	private Table table;
@@ -59,6 +61,12 @@ public class SellsWindow extends Shell {
 		DateTime dateTime = new DateTime(composite, SWT.BORDER);
 
 		table = new Table(this, SWT.BORDER | SWT.FULL_SELECTION);
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {
+				
+			}
+		});
 		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
