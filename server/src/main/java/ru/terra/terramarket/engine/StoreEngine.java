@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ru.terra.server.dto.SimpleDataDTO;
 import ru.terra.server.engine.AbstractEngine;
 import ru.terra.terramarket.db.controllers.StoreJpaController;
+import ru.terra.terramarket.db.entity.Product;
 import ru.terra.terramarket.db.entity.Store;
 import ru.terra.terramarket.dto.store.StoreDTO;
 
@@ -23,6 +24,25 @@ public class StoreEngine extends AbstractEngine<Store, StoreDTO> {
             jpaController.create(new Store(null, productEngine.getBean(product), count, new Date()));
         } catch (Exception e) {
             logger.error("Unable to add product to store", e);
+            return new SimpleDataDTO<>(false);
+        }
+        return new SimpleDataDTO<>(true);
+    }
+
+    public SimpleDataDTO<Boolean> updateStore(Integer productId, Integer count) {
+        try {
+            Product product = productEngine.getBean(productId);
+            if (product == null)
+                return new SimpleDataDTO<>(false);
+            Store store = ((StoreJpaController) jpaController).findByProduct(product);
+            if (store == null)
+                return new SimpleDataDTO<>(false);
+            store.setCount(count);
+            store.setProdId(product);
+            store.setUpdated(new Date());
+            jpaController.update(store);
+        } catch (Exception e) {
+            logger.error("Unable to update product in store", e);
             return new SimpleDataDTO<>(false);
         }
         return new SimpleDataDTO<>(true);

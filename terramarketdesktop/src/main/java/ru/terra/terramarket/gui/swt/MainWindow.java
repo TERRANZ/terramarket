@@ -16,7 +16,6 @@ import ru.terra.terramarket.cache.WayBillsCache;
 import ru.terra.terramarket.core.CacheManager;
 import ru.terra.terramarket.dto.product.ProductDTO;
 import ru.terra.terramarket.dto.waybill.WayBillDTO;
-import ru.terra.terramarket.gui.abstracted.ProductListWindow;
 import ru.terra.terramarket.gui.swt.group.GroupsWindow;
 import ru.terra.terramarket.gui.swt.product.ProductEditDialog;
 import ru.terra.terramarket.gui.swt.product.ProductsWindow;
@@ -123,8 +122,8 @@ public class MainWindow {
 		miProductsManage.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				//new ProductsWindow(display).open();
-				new ProductListWindow(display).open();
+				// new ProductsWindow(display).open();
+				new ProductsWindow(display).open();
 			}
 		});
 		miProductsManage.setText("Управление...");
@@ -137,13 +136,13 @@ public class MainWindow {
 			}
 		});
 		miGroupsManage.setText("Группы...");
-		
+
 		MenuItem mrStore = new MenuItem(menu, SWT.CASCADE);
 		mrStore.setText("Склад");
-		
+
 		Menu menu_5 = new Menu(mrStore);
 		mrStore.setMenu(menu_5);
-		
+
 		MenuItem mntmNewItem = new MenuItem(menu_5, SWT.NONE);
 		mntmNewItem.addSelectionListener(new SelectionAdapter() {
 			@Override

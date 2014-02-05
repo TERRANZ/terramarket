@@ -1,6 +1,8 @@
 package ru.terra.terramarket.gui.swt.store;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
@@ -33,6 +35,25 @@ import ru.terra.terramarket.network.RestClient;
 public class StoreWindow extends Shell {
 	protected static final int COLUMN_COUNT = 2;
 	private Table tblProducts;
+	private Map<Integer, TableItem> productsMap = new HashMap<Integer, TableItem>();
+
+	public enum StoreState {
+		OLD, NEW, UPD;
+	}
+
+	public class StoreBean {
+		public Integer prodId = 0;
+		public StoreState state = StoreState.OLD;
+		public Integer count;
+
+		public StoreBean(Integer prodId, StoreState state, Integer count) {
+			super();
+			this.prodId = prodId;
+			this.state = state;
+			this.count = count;
+		}
+
+	}
 
 	/**
 	 * Create the shell.
@@ -60,11 +81,15 @@ public class StoreWindow extends Shell {
 				if (tblProducts.getItemCount() > 0) {
 					RestClient restClient = new RestClient(StoreWindow.this);
 					for (TableItem ti : tblProducts.getItems()) {
-						Pair<Integer, Boolean> productHolder = (Pair<Integer, Boolean>) ti.getData();
-						if (productHolder.getValue()) {
-							restClient.storeAdd(productHolder.getKey(), Integer.valueOf(ti.getText(2)));
-							productHolder.setValue(false);
-						}
+						StoreBean productHolder = (StoreBean) ti.getData();
+						boolean ret = false;
+						if (productHolder.state == StoreState.NEW)
+							ret = restClient.storeAdd(productHolder.prodId, Integer.valueOf(ti.getText(2)));
+						else if (productHolder.state == StoreState.UPD)
+							ret = restClient.storeUpdate(productHolder.prodId, Integer.valueOf(ti.getText(2)));
+						if (ret)
+							((StoreCache) CacheManager.getInstance().getCache(StoreCache.class)).fill(getShell());	
+						productHolder.state = StoreState.OLD;
 					}
 				}
 			}
@@ -81,9 +106,15 @@ public class StoreWindow extends Shell {
 			public void widgetSelected(SelectionEvent e) {
 				Pair<Integer, String> selectedProduct = new ProductSelectDialog(getShell(), SWT.DIALOG_TRIM).open();
 				if (selectedProduct != null) {
-					final TableItem item = new TableItem(tblProducts, SWT.NONE);
+					TableItem item = null;
+					StoreState state = StoreState.NEW;
+					if (productsMap.containsKey(selectedProduct.getKey())) {
+						item = productsMap.get(selectedProduct.getKey());
+						state = StoreState.UPD;
+					} else 
+						item = new TableItem(tblProducts, SWT.NONE);					
 					Date currDate = new Date();
-					item.setData(new Pair<Integer, Boolean>(selectedProduct.getKey(), true));
+					item.setData(new StoreBean(selectedProduct.getKey(), state, 1));
 					item.setText(new String[] { selectedProduct.getValue(), currDate.toString(), "1" });
 					Spinner newEditor = new Spinner(tblProducts, SWT.NONE);
 					newEditor.setValues(Integer.parseInt(item.getText(COLUMN_COUNT)), 0, 9999, 0, 1, 10);
@@ -136,14 +167,14 @@ public class StoreWindow extends Shell {
 
 	@Override
 	protected void checkSubclass() {
-		// Disable the check that prevents subclassing of SWT components
 	}
 
 	private void load() {
 		for (StoreDTO storeDTO : ((StoreCache) CacheManager.getInstance().getCache(StoreCache.class)).getValues()) {
-			final TableItem item = new TableItem(tblProducts, SWT.NONE);
-			item.setData(new Pair<Integer, Boolean>(storeDTO.product.id, false));
+			TableItem item = new TableItem(tblProducts, SWT.NONE);
+			item.setData(new StoreBean(storeDTO.product.id, StoreState.OLD, 1));
 			item.setText(new String[] { storeDTO.product.name, storeDTO.updated.toString(), String.valueOf(storeDTO.count) });
+			productsMap.put(storeDTO.product.id, item);
 		}
 	}
 }

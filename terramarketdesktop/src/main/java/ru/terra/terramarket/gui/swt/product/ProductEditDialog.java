@@ -21,9 +21,8 @@ import org.eclipse.swt.widgets.ToolItem;
 import ru.terra.terramarket.cache.GroupCache;
 import ru.terra.terramarket.core.CacheManager;
 import ru.terra.terramarket.dto.product.ProductDTO;
-import ru.terra.terramarket.gui.swt.AbstractEditDialog;
 
-public class ProductEditDialog extends AbstractEditDialog<ProductDTO> {
+public class ProductEditDialog extends Dialog {
 
 	protected ProductDTO result;
 	protected Shell shell;
@@ -44,7 +43,7 @@ public class ProductEditDialog extends AbstractEditDialog<ProductDTO> {
 	 * @param style
 	 */
 	public ProductEditDialog(Shell parent, int style) {
-		super(parent);
+		super(parent, style);
 		setText("Товар");
 	}
 
@@ -197,13 +196,4 @@ public class ProductEditDialog extends AbstractEditDialog<ProductDTO> {
 		txtGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 	}
 
-	@Override
-	public ProductDTO getNew() {
-		return open(null);
-	}
-
-	@Override
-	public ProductDTO edit(ProductDTO entity) {
-		return open(entity);
-	}
 }

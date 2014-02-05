@@ -169,4 +169,13 @@ public class RestClient {
 			return null;
 		}
 	}
+	
+	public Boolean storeUpdate(Integer product, Integer count) {
+		try {
+			return createRequest().updateStore(SessionHolder.sessionId, product, count).data;
+		} catch (Exception e) {
+			new ErrorReportDialog(shell, SWT.APPLICATION_MODAL).open(e);
+			return null;
+		}
+	}
 }

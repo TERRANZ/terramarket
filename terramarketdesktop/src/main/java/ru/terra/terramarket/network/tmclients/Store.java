@@ -20,4 +20,8 @@ public interface Store {
 	@POST
 	@Path(URLConstants.DoJson.Store.STORE + URLConstants.DoJson.DO_CREATE)
 	SimpleDataDTO<Boolean> addToStore(@HeaderParam("Cookie") String session, @QueryParam("product") Integer product, @QueryParam("count") Integer count);
+	
+	@POST
+	@Path(URLConstants.DoJson.Store.STORE + URLConstants.DoJson.DO_UPDATE)
+	SimpleDataDTO<Boolean> updateStore(@HeaderParam("Cookie") String session, @QueryParam("product") Integer product, @QueryParam("count") Integer count);
 }

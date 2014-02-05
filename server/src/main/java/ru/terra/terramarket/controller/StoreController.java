@@ -36,4 +36,18 @@ public class StoreController extends AbstractController<Store, StoreDTO, StoreEn
         }
         return engine.addToStore(product, count);
     }
+
+    @POST
+    @Path(URLConstants.DoJson.DO_UPDATE)
+    public SimpleDataDTO<Boolean> update(@Context HttpContext hc, @QueryParam("product") Integer product, @QueryParam("count") Integer count) {
+        if (engine == null)
+            throw new NotImplementedException();
+        if (!checkUserCanAccess(hc, SecurityLevel.MANAGER)) {
+            SimpleDataDTO<Boolean> ret = new SimpleDataDTO<>(false);
+            ret.errorCode = ErrorConstants.ERR_NOT_AUTHORIZED_ID;
+            ret.errorMessage = ErrorConstants.ERR_NOT_AUTHORIZED_MSG;
+            return ret;
+        }
+        return engine.updateStore(product, count);
+    }
 }

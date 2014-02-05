@@ -3,13 +3,13 @@ package ru.terra.server.controller;
 import com.sun.jersey.api.core.HttpContext;
 import org.apache.commons.lang.NotImplementedException;
 import org.apache.log4j.Logger;
+import ru.terra.server.constants.CoreUrlConstants;
 import ru.terra.server.constants.ErrorConstants;
 import ru.terra.server.dto.CommonDTO;
 import ru.terra.server.dto.ListDTO;
 import ru.terra.server.dto.SimpleDataDTO;
 import ru.terra.server.engine.AbstractEngine;
 import ru.terra.server.security.SecurityLevel;
-import ru.terra.server.constants.CoreUrlConstants;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -26,16 +26,15 @@ public abstract class AbstractController<Bean, ReturnDto extends CommonDTO, Engi
         try {
             engine = engineClass.newInstance();
         } catch (InstantiationException e) {
-            e.printStackTrace();
+            logger.error("Unable to instantiate egine", e);
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            logger.error("Unable to access to engine class", e);
         }
     }
 
     @GET
     @Path(CoreUrlConstants.DoJson.DO_LIST)
     public ListDTO<ReturnDto> list(@Context HttpContext hc, @QueryParam("all") boolean all, @QueryParam("page") Integer page, @QueryParam("perpage") Integer perpage) {
-        logger.info("Loading list of dtos");
         if (engine == null)
             throw new NotImplementedException();
         ListDTO<ReturnDto> ret = new ListDTO<>();
