@@ -111,7 +111,7 @@ public class RestClient {
 	public ProductDTO createProduct(ProductDTO prod) {
 		try {
 			return createRequest().createProduct(SessionHolder.sessionId, prod.name, prod.mincount, prod.barcode, prod.qtype, prod.priceIn,
-					prod.priceOut, prod.group.id);
+					prod.priceOut, prod.group.id, prod.comment);
 		} catch (Exception e) {
 			new ErrorReportDialog(shell, SWT.APPLICATION_MODAL).open(e);
 			return null;
@@ -121,7 +121,7 @@ public class RestClient {
 	public Boolean updateProduct(ProductDTO prod) {
 		try {
 			return createRequest().updateProduct(SessionHolder.sessionId, prod.name, prod.mincount, prod.barcode, prod.qtype, prod.priceIn,
-					prod.priceOut, prod.group.id).data;
+					prod.priceOut, prod.group.id, prod.comment).data;
 		} catch (Exception e) {
 			new ErrorReportDialog(shell, SWT.APPLICATION_MODAL).open(e);
 			return null;
@@ -154,7 +154,7 @@ public class RestClient {
 			for (Integer count : counts)
 				acounts += count + ",";
 			acounts = acounts.substring(0, acounts.length() - 1);
-			return createRequest().doSell(SessionHolder.sessionId, aproducts, acounts);			
+			return createRequest().doSell(SessionHolder.sessionId, aproducts, acounts);
 		} catch (Exception e) {
 			new ErrorReportDialog(shell, SWT.APPLICATION_MODAL).open(e);
 			return null;
@@ -169,7 +169,7 @@ public class RestClient {
 			return null;
 		}
 	}
-	
+
 	public Boolean storeUpdate(Integer product, Integer count) {
 		try {
 			return createRequest().updateStore(SessionHolder.sessionId, product, count).data;

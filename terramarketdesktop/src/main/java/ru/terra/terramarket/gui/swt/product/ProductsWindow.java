@@ -97,8 +97,12 @@ public class ProductsWindow extends Shell {
 		tblclmnNewColumn_1.setText("Наименование");
 
 		TableColumn tblclmnNewColumn_2 = new TableColumn(tblProducts, SWT.NONE);
-		tblclmnNewColumn_2.setWidth(100);
-		tblclmnNewColumn_2.setText("Код");
+		tblclmnNewColumn_2.setWidth(223);
+		tblclmnNewColumn_2.setText("Комментарий");
+
+		TableColumn tblclmnNewColumn_3 = new TableColumn(tblProducts, SWT.NONE);
+		tblclmnNewColumn_3.setWidth(100);
+		tblclmnNewColumn_3.setText("Код");
 		createContents();
 		load();
 		tblProducts.addMouseListener(new MouseAdapter() {
@@ -117,7 +121,7 @@ public class ProductsWindow extends Shell {
 			new RestClient(ProductsWindow.this).updateProduct(newProd);
 			if (newProd != null && newProd.errorCode == 0) {
 				currItem.setData(newProd);
-				currItem.setText(new String[] { newProd.id.toString(), newProd.name, newProd.barcode });
+				currItem.setText(new String[] { newProd.id.toString(), newProd.name, newProd.barcode, newProd.comment });
 				loadGroup(currGroup);
 			} else {
 				MessageDialog.openError(getShell(), "Ошибка при созднии товара", newProd.errorMessage);
@@ -161,7 +165,7 @@ public class ProductsWindow extends Shell {
 		tblProducts.removeAll();
 		for (ProductDTO product : group.productList) {
 			TableItem ti = new TableItem(tblProducts, SWT.NONE);
-			ti.setText(new String[] { product.id.toString(), product.name, product.barcode });
+			ti.setText(new String[] { product.id.toString(), product.name, product.barcode, product.comment });
 			ti.setData(product);
 		}
 	}

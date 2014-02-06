@@ -35,6 +35,7 @@ public class ProductEditDialog extends Dialog {
 	private Spinner spPriceOut;
 	private String[] groups;
 	private GroupCache groupCache = (GroupCache) CacheManager.getInstance().getCache(GroupCache.class);
+	private Text txtComment;
 
 	/**
 	 * Create the dialog.
@@ -81,6 +82,7 @@ public class ProductEditDialog extends Dialog {
 		spMincount.setSelection(result.mincount);
 		spPriceIn.setSelection(result.priceIn);
 		spPriceOut.setSelection(result.priceOut);
+		txtComment.setText(result.comment);
 	}
 
 	/**
@@ -111,6 +113,7 @@ public class ProductEditDialog extends Dialog {
 				result.mincount = spMincount.getSelection();
 				result.priceIn = spPriceIn.getSelection();
 				result.priceOut = spPriceOut.getSelection();
+				result.comment = txtComment.getText();
 				shell.close();
 			}
 		});
@@ -129,6 +132,13 @@ public class ProductEditDialog extends Dialog {
 
 		txtName = new Text(composite, SWT.BORDER);
 		txtName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+
+		Label label = new Label(composite, SWT.NONE);
+		label.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		label.setText("Комментарий");
+
+		txtComment = new Text(composite, SWT.BORDER);
+		txtComment.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		Label lblNewLabel_1 = new Label(composite, SWT.CENTER);
 		lblNewLabel_1.setAlignment(SWT.CENTER);

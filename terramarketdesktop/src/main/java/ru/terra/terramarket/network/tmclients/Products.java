@@ -21,11 +21,12 @@ public interface Products {
 	@Path(URLConstants.DoJson.Product.PRODUCT + URLConstants.DoJson.DO_CREATE)
 	ProductDTO createProduct(@HeaderParam("Cookie") String session, @QueryParam("name") String name, @QueryParam("mincount") Integer mincount,
 			@QueryParam("barcode") String barcode, @QueryParam("qtype") Integer qtype, @QueryParam("pricein") Integer priceIn,
-			@QueryParam("priceout") Integer priceOut, @QueryParam("groupid") Integer group);
+			@QueryParam("priceout") Integer priceOut, @QueryParam("groupid") Integer group, @QueryParam("comment") String comment);
 
 	@POST
 	@Path(URLConstants.DoJson.Product.PRODUCT + "do.update.json")
-	SimpleDataDTO<Boolean> updateProduct(@HeaderParam("Cookie") String session, @QueryParam("name") String name, @QueryParam("mincount") Integer mincount,
-			@QueryParam("barcode") String barcode, @QueryParam("qtype") Integer qtype, @QueryParam("pricein") Integer priceIn,
-			@QueryParam("priceout") Integer priceOut, @QueryParam("groupid") Integer group);
+	SimpleDataDTO<Boolean> updateProduct(@HeaderParam("Cookie") String session, @QueryParam("name") String name,
+			@QueryParam("mincount") Integer mincount, @QueryParam("barcode") String barcode, @QueryParam("qtype") Integer qtype,
+			@QueryParam("pricein") Integer priceIn, @QueryParam("priceout") Integer priceOut, @QueryParam("groupid") Integer group,
+			@QueryParam("comment") String comment);
 }

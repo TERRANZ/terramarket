@@ -114,7 +114,7 @@ public class ProductSelectDialog extends Dialog {
 
 		for (ProductDTO product : productsCache.getValues()) {
 			TableItem ti = new TableItem(tblProducts, SWT.NONE);
-			ti.setText(new String[] { product.id.toString(), product.name });
+			ti.setText(new String[] { product.id.toString(), product.name + " " + product.comment });
 		}
 	}
 

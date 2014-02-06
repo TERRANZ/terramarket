@@ -16,10 +16,8 @@ import ru.terra.terramarket.engine.ProductEngine;
 
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
 
 @Path(URLConstants.DoJson.Product.PRODUCT)
 public class ProductContoller extends AbstractController<Product, ProductDTO, ProductEngine> {
@@ -39,7 +37,8 @@ public class ProductContoller extends AbstractController<Product, ProductDTO, Pr
                              @QueryParam("qtype") Integer qtype,
                              @QueryParam("pricein") Integer priceIn,
                              @QueryParam("priceout") Integer priceOut,
-                             @QueryParam("groupid") Integer group
+                             @QueryParam("groupid") Integer group,
+                             @QueryParam("comment") String comment
     ) {
         if (engine == null)
             throw new NotImplementedException();
@@ -51,7 +50,7 @@ public class ProductContoller extends AbstractController<Product, ProductDTO, Pr
         }
         return engine.entityToDto(
                 engine.createBean(
-                        new Product(null, name, mincount, qtype, priceIn, priceOut, 0, barcode, groupEngine.getBean(group))));
+                        new Product(null, name, mincount, qtype, priceIn, priceOut, 0, barcode, groupEngine.getBean(group), comment)));
 
     }
 
@@ -64,7 +63,8 @@ public class ProductContoller extends AbstractController<Product, ProductDTO, Pr
                                          @QueryParam("qtype") Integer qtype,
                                          @QueryParam("pricein") Integer priceIn,
                                          @QueryParam("priceout") Integer priceOut,
-                                         @QueryParam("groupid") Integer group) {
+                                         @QueryParam("groupid") Integer group,
+                                         @QueryParam("comment") String comment) {
         if (engine == null)
             throw new NotImplementedException();
         if (!checkUserCanAccess(hc, SecurityLevel.MANAGER)) {
@@ -74,6 +74,6 @@ public class ProductContoller extends AbstractController<Product, ProductDTO, Pr
             return ret;
         }
         return new SimpleDataDTO<>(engine.updateDTO(
-                new ProductDTO(name, mincount, barcode, qtype, priceIn, priceOut, groupEngine.getDto(group))));
+                new ProductDTO(name, mincount, barcode, qtype, priceIn, priceOut, groupEngine.getDto(group), comment)));
     }
 }

@@ -18,11 +18,13 @@ public class ProductDTO extends CommonDTO {
     public GroupDTO group;
     public Integer rating = 0;
     public List<PhotoDTO> photos = new ArrayList<>();
+    public String comment = "";
 
     public ProductDTO(Product prod) {
         if (prod != null) {
             this.id = prod.getId();
             this.name = prod.getName();
+            this.comment = prod.getComment();
             this.mincount = prod.getMincount();
             this.barcode = prod.getBarcode();
             this.qtype = prod.getQtype();
@@ -36,7 +38,7 @@ public class ProductDTO extends CommonDTO {
         }
     }
 
-    public ProductDTO(String name, Integer mincount, String barcode, Integer qtype, Integer priceIn, Integer priceOut, GroupDTO group) {
+    public ProductDTO(String name, Integer mincount, String barcode, Integer qtype, Integer priceIn, Integer priceOut, GroupDTO group, String comment) {
         this.name = name;
         this.mincount = mincount;
         this.barcode = barcode;
@@ -44,5 +46,6 @@ public class ProductDTO extends CommonDTO {
         this.priceIn = priceIn;
         this.priceOut = priceOut;
         this.group = group;
+        this.comment = comment;
     }
 }

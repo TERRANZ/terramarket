@@ -79,7 +79,7 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public Product(Integer id, String name, int mincount, int qtype, int priceIn, int priceOut, int rating, String barcode, Groups group) {
+    public Product(Integer id, String name, int mincount, int qtype, int priceIn, int priceOut, int rating, String barcode, Groups group,String comment) {
         this.id = id;
         this.name = name;
         this.mincount = mincount;
@@ -89,6 +89,7 @@ public class Product implements Serializable {
         this.rating = rating;
         this.barcode = barcode;
         this.groupId = group;
+        this.comment = comment;
     }
 
     public Integer getId() {

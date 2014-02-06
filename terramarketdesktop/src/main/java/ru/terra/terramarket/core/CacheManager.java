@@ -30,16 +30,22 @@ public class CacheManager {
 		return instance;
 	}
 
-	public void fillCache(Shell shell) {
-		try {
-			caches.get(ProductsCache.class).fill(shell);
-			caches.get(GroupCache.class).fill(shell);
-			caches.get(WayBillsCache.class).fill(shell);
-			caches.get(StoreCache.class).fill(shell);
-			caches.get(SellsCache.class).fill(shell);
-		} catch (Exception e) {
-			logger.error("Unable to load", e);
-		}
+	public void fillCache(final Shell shell) {
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				try {
+					caches.get(ProductsCache.class).fill(shell);
+					caches.get(GroupCache.class).fill(shell);
+					caches.get(WayBillsCache.class).fill(shell);
+					caches.get(StoreCache.class).fill(shell);
+					caches.get(SellsCache.class).fill(shell);
+				} catch (Exception e) {
+					logger.error("Unable to load", e);
+				}
+			}
+		}).start();
 
 	}
 

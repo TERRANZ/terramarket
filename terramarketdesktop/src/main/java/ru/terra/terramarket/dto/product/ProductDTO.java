@@ -15,6 +15,7 @@ public class ProductDTO extends CommonDTO {
 	public GroupDTO group;
 	public Integer rating;
 	public List<PhotoDTO> photos = new ArrayList<>();
+	public String comment;
 
 	public ProductDTO(ProductDTO dto) {
 		this.id = dto.id;
@@ -25,6 +26,7 @@ public class ProductDTO extends CommonDTO {
 		this.priceIn = dto.priceIn;
 		this.priceOut = dto.priceOut;
 		this.group = dto.group;
+		this.comment = dto.comment;
 	}
 
 	public ProductDTO() {
@@ -81,6 +83,30 @@ public class ProductDTO extends CommonDTO {
 
 	public void setPriceOut(Integer priceOut) {
 		this.priceOut = priceOut;
+	}
+
+	public GroupDTO getGroup() {
+		return group;
+	}
+
+	public void setGroup(GroupDTO group) {
+		this.group = group;
+	}
+
+	public Integer getRating() {
+		return rating;
+	}
+
+	public void setRating(Integer rating) {
+		this.rating = rating;
+	}
+
+	public List<PhotoDTO> getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(List<PhotoDTO> photos) {
+		this.photos = photos;
 	}
 
 }
