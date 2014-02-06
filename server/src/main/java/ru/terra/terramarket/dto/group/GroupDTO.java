@@ -1,6 +1,5 @@
 package ru.terra.terramarket.dto.group;
 
-import flexjson.JSONDeserializer;
 import ru.terra.server.dto.CommonDTO;
 import ru.terra.terramarket.db.entity.Groups;
 import ru.terra.terramarket.db.entity.Product;

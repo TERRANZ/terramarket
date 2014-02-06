@@ -1,8 +1,7 @@
 package ru.terra.terramarket.dto.sell;
 
-import flexjson.JSONDeserializer;
-import ru.terra.terramarket.db.entity.SellsItem;
 import ru.terra.server.dto.CommonDTO;
+import ru.terra.terramarket.db.entity.SellsItem;
 import ru.terra.terramarket.dto.product.ProductDTO;
 
 public class SellItemDTO extends CommonDTO {

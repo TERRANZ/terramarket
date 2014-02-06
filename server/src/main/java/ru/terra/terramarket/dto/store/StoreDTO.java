@@ -1,8 +1,7 @@
 package ru.terra.terramarket.dto.store;
 
-import flexjson.JSONDeserializer;
-import ru.terra.terramarket.db.entity.Store;
 import ru.terra.server.dto.CommonDTO;
+import ru.terra.terramarket.db.entity.Store;
 import ru.terra.terramarket.dto.product.ProductDTO;
 
 import java.util.Date;

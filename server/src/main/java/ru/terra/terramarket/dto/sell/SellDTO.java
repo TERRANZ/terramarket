@@ -6,7 +6,6 @@ import ru.terra.terramarket.db.entity.Sells;
 import ru.terra.terramarket.db.entity.SellsItem;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class SellDTO extends CommonDTO {

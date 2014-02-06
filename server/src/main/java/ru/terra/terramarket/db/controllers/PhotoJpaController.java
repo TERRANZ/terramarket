@@ -4,15 +4,15 @@
  */
 package ru.terra.terramarket.db.controllers;
 
-import java.io.Serializable;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityNotFoundException;
-
 import ru.terra.server.db.controllers.AbstractJpaController;
 import ru.terra.terramarket.db.controllers.exceptions.NonexistentEntityException;
 import ru.terra.terramarket.db.entity.Photo;
-import ru.terra.terramarket.db.entity.User;
 import ru.terra.terramarket.db.entity.Product;
+import ru.terra.terramarket.db.entity.User;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityNotFoundException;
+import java.io.Serializable;
 
 /**
  *

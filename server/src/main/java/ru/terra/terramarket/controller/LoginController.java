@@ -4,10 +4,10 @@ import com.sun.jersey.api.core.HttpContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.terra.server.controller.AbstractController;
-import ru.terra.terramarket.constants.URLConstants;
-import ru.terra.terramarket.db.entity.User;
 import ru.terra.server.dto.LoginDTO;
 import ru.terra.server.dto.UserDTO;
+import ru.terra.terramarket.constants.URLConstants;
+import ru.terra.terramarket.db.entity.User;
 import ru.terra.terramarket.engine.UsersEngine;
 
 import javax.ws.rs.GET;

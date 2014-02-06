@@ -7,9 +7,6 @@ import ru.terra.terramarket.db.entity.Groups;
 import ru.terra.terramarket.db.entity.Product;
 import ru.terra.terramarket.dto.product.ProductDTO;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ProductEngine extends AbstractEngine<Product, ProductDTO> {
 
     private Logger logger = Logger.getLogger(ProductEngine.class);

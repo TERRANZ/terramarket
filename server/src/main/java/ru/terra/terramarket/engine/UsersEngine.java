@@ -3,10 +3,10 @@ package ru.terra.terramarket.engine;
 import org.apache.commons.lang.NotImplementedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.terra.server.dto.UserDTO;
 import ru.terra.server.engine.AbstractEngine;
 import ru.terra.terramarket.db.controllers.UserJpaController;
 import ru.terra.terramarket.db.entity.User;
-import ru.terra.server.dto.UserDTO;
 
 import javax.persistence.NoResultException;
 import java.util.List;

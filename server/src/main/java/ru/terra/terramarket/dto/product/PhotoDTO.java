@@ -1,8 +1,7 @@
 package ru.terra.terramarket.dto.product;
 
-import flexjson.JSONDeserializer;
-import ru.terra.terramarket.db.entity.Photo;
 import ru.terra.server.dto.CommonDTO;
+import ru.terra.terramarket.db.entity.Photo;
 
 /**
  * User: Vadim Korostelev
