@@ -55,6 +55,11 @@ public class Product implements Serializable {
     @Basic(optional = false)
     @Column(name = "rating", nullable = false)
     private int rating;
+    @Basic(optional = true)
+    @Column(name = "comment", nullable = true, length = 512)
+    private String comment;
+    @Column(name = "avail")
+    private Boolean avail;
     @JoinColumn(name = "group_id", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false)
     private Groups groupId;
@@ -83,7 +88,7 @@ public class Product implements Serializable {
         this.priceOut = priceOut;
         this.rating = rating;
         this.barcode = barcode;
-        this.groupId =  group;
+        this.groupId = group;
     }
 
     public Integer getId() {
@@ -223,4 +228,19 @@ public class Product implements Serializable {
         return "ru.terra.terramarket.db.entity.Product[ id=" + id + " ]";
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Boolean getAvail() {
+        return avail;
+    }
+
+    public void setAvail(Boolean avail) {
+        this.avail = avail;
+    }
 }

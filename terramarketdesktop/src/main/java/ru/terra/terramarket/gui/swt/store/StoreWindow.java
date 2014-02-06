@@ -88,7 +88,7 @@ public class StoreWindow extends Shell {
 						else if (productHolder.state == StoreState.UPD)
 							ret = restClient.storeUpdate(productHolder.prodId, Integer.valueOf(ti.getText(2)));
 						if (ret)
-							((StoreCache) CacheManager.getInstance().getCache(StoreCache.class)).fill(getShell());	
+							((StoreCache) CacheManager.getInstance().getCache(StoreCache.class)).fill(getShell());
 						productHolder.state = StoreState.OLD;
 					}
 				}
@@ -111,8 +111,8 @@ public class StoreWindow extends Shell {
 					if (productsMap.containsKey(selectedProduct.getKey())) {
 						item = productsMap.get(selectedProduct.getKey());
 						state = StoreState.UPD;
-					} else 
-						item = new TableItem(tblProducts, SWT.NONE);					
+					} else
+						item = new TableItem(tblProducts, SWT.NONE);
 					Date currDate = new Date();
 					item.setData(new StoreBean(selectedProduct.getKey(), state, 1));
 					item.setText(new String[] { selectedProduct.getValue(), currDate.toString(), "1" });
