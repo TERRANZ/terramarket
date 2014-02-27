@@ -4,10 +4,19 @@ import com.sun.jersey.api.core.HttpContext;
 import org.apache.log4j.Logger;
 import ru.terra.server.db.entity.AbstractUser;
 import ru.terra.server.security.SecurityLevel;
+import ru.terra.server.security.SessionInfo;
 import ru.terra.server.security.SessionsHolder;
+import sun.misc.IOUtils;
 
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.CacheControl;
+import javax.ws.rs.core.EntityTag;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 
 @Produces(MediaType.APPLICATION_JSON)
@@ -36,7 +45,8 @@ public class AbstractResource {
     }
 
     protected AbstractUser getCurrentUser(HttpContext context) {
-        return sessionsHolder.getSession(extractSessionId(context)).getUser();
+        SessionInfo sessionInfo = sessionsHolder.getSession(extractSessionId(context));
+        return sessionInfo == null ? null : sessionInfo.getUser();
     }
 
     protected boolean checkUserCanAccess(HttpContext context, SecurityLevel level) {
@@ -49,4 +59,32 @@ public class AbstractResource {
             return true;
         return false;
     }
+
+    public static Response getFile(String path) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        try {
+            stream.write(IOUtils.readFully(new FileInputStream(new File(path)), -1, true));
+        } catch (IOException e) {
+            Logger.getLogger(AbstractResource.class).error("Unable to read file", e);
+            Response response = Response
+                    .noContent()
+                    .build();
+            return response;
+        }
+        CacheControl cc = new CacheControl();
+        cc.setNoTransform(true);
+        cc.setMustRevalidate(false);
+        cc.setNoCache(false);
+        cc.setMaxAge(3600);
+        EntityTag entityTag = new EntityTag(String.valueOf(path.hashCode()));
+
+        Response response = Response
+                .ok()
+                .cacheControl(cc)
+                .tag(entityTag)
+                .entity(stream.toByteArray())
+                .build();
+        return response;
+    }
+
 }
