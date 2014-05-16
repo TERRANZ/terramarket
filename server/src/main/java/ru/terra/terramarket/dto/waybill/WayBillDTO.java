@@ -5,9 +5,11 @@ import ru.terra.server.dto.UserDTO;
 import ru.terra.terramarket.db.entity.Waybill;
 import ru.terra.terramarket.db.entity.WaybillItem;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
+@XmlRootElement
 public class WayBillDTO extends CommonDTO {
 
     public int count;
@@ -15,6 +17,9 @@ public class WayBillDTO extends CommonDTO {
     public List<WayBillItemDTO> waybillItems;
     public UserDTO user;
     public String supplier, title;
+
+    public WayBillDTO() {
+    }
 
     public WayBillDTO(Waybill wb) {
         this.id = wb.getId();

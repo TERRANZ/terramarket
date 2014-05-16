@@ -26,7 +26,7 @@ import java.util.List;
 @Path(URLConstants.DoJson.WayBill.WAYBILL)
 public class WayBillsController extends AbstractController<Waybill, WayBillDTO, WayBillEngine> {
     public WayBillsController() {
-        super(WayBillEngine.class);
+        super(WayBillEngine.class, true, Waybill.class, WayBillDTO.class);
     }
 
     private UsersEngine usersEngine = new UsersEngine();
@@ -121,7 +121,9 @@ public class WayBillsController extends AbstractController<Waybill, WayBillDTO, 
         return new SimpleDataDTO<>(
                 engine.updateDTO(
                         new WayBillDTO(
-                                count, date, items, usersEngine.getDto(getCurrentUserId(hc)), supplier, title)));
+                                count, date, items, usersEngine.getDto(getCurrentUserId(hc)), supplier, title)
+                )
+        );
     }
 
 }

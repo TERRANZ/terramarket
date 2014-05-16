@@ -5,14 +5,17 @@ import ru.terra.terramarket.db.entity.Groups;
 import ru.terra.terramarket.db.entity.Product;
 import ru.terra.terramarket.dto.product.ProductDTO;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
+@XmlRootElement
 public class GroupDTO extends CommonDTO {
 
     public String name;
     public int parent;
     public List<ProductDTO> productList;
+
 
     public GroupDTO() {
     }

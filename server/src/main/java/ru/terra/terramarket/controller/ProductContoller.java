@@ -25,7 +25,7 @@ public class ProductContoller extends AbstractController<Product, ProductDTO, Pr
     private GroupEngine groupEngine = new GroupEngine();
 
     public ProductContoller() {
-        super(ProductEngine.class);
+        super(ProductEngine.class, false, Product.class, ProductDTO.class);
     }
 
     @POST
@@ -50,7 +50,8 @@ public class ProductContoller extends AbstractController<Product, ProductDTO, Pr
         }
         return engine.entityToDto(
                 engine.createBean(
-                        new Product(null, name, mincount, qtype, priceIn, priceOut, 0, barcode, groupEngine.getBean(group), comment)));
+                        new Product(null, name, mincount, qtype, priceIn, priceOut, 0, barcode, groupEngine.getBean(group), comment))
+        );
 
     }
 

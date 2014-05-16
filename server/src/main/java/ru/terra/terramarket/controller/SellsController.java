@@ -28,7 +28,7 @@ public class SellsController extends AbstractController<Sells, SellDTO, SellsEng
     protected Logger logger = Logger.getLogger(this.getClass());
 
     public SellsController() {
-        super(SellsEngine.class);
+        super(SellsEngine.class, true, Sells.class, SellDTO.class);
     }
 
     @POST

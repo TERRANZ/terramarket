@@ -26,7 +26,14 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BasicConfigurator.configure();
-        TimersManager.getInstance().start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                TimersManager.getInstance().start();
+            }
+        }).start();
+
+
         HttpServer httpServer = startServer();
 
         System.out.println("Starting...");

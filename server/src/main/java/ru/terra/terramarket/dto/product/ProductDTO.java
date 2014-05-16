@@ -5,9 +5,11 @@ import ru.terra.terramarket.db.entity.Photo;
 import ru.terra.terramarket.db.entity.Product;
 import ru.terra.terramarket.dto.group.GroupDTO;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
+@XmlRootElement
 public class ProductDTO extends CommonDTO {
 
     public String name = "";
@@ -19,6 +21,9 @@ public class ProductDTO extends CommonDTO {
     public Integer rating = 0;
     public List<PhotoDTO> photos = new ArrayList<>();
     public String comment = "";
+
+    public ProductDTO() {
+    }
 
     public ProductDTO(Product prod) {
         if (prod != null) {

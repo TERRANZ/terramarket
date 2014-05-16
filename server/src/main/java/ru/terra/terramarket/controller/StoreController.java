@@ -20,7 +20,7 @@ import javax.ws.rs.core.Context;
 @Path(URLConstants.DoJson.Store.STORE)
 public class StoreController extends AbstractController<Store, StoreDTO, StoreEngine> {
     public StoreController() {
-        super(StoreEngine.class);
+        super(StoreEngine.class, true, Store.class, StoreDTO.class);
     }
 
     @POST

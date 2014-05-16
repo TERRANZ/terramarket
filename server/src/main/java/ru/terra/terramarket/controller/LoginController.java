@@ -13,6 +13,7 @@ import ru.terra.terramarket.engine.UsersEngine;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
@@ -22,15 +23,16 @@ public class LoginController extends AbstractController<User, UserDTO, UsersEngi
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public LoginController() {
-        super(UsersEngine.class);
+        super(UsersEngine.class, true, User.class, UserDTO.class);
     }
 
     @GET
     @Path(URLConstants.DoJson.Login.LOGIN_DO_LOGIN_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public LoginDTO login(@Context HttpContext hc) {
-        String user = getParameter(hc, "user");
-        String pass = getParameter(hc, "pass");
+    public LoginDTO login(@Context HttpContext hc,
+                          @QueryParam("user") String user,
+                          @QueryParam("pass") String pass) {
+
         logger.info("User requests login with user = " + user + " and pass = " + pass);
 
         LoginDTO ret = new LoginDTO();

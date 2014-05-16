@@ -21,7 +21,7 @@ public class StoreEngine extends AbstractEngine<Store, StoreDTO> {
 
     public SimpleDataDTO<Boolean> addToStore(Integer product, Integer count) {
         try {
-            jpaController.create(new Store(null, productEngine.getBean(product), count, new Date()));
+            dbController.create(new Store(null, productEngine.getBean(product), count, new Date()));
         } catch (Exception e) {
             logger.error("Unable to add product to store", e);
             return new SimpleDataDTO<>(false);
@@ -34,13 +34,13 @@ public class StoreEngine extends AbstractEngine<Store, StoreDTO> {
             Product product = productEngine.getBean(productId);
             if (product == null)
                 return new SimpleDataDTO<>(false);
-            Store store = ((StoreJpaController) jpaController).findByProduct(product);
+            Store store = ((StoreJpaController) dbController).findByProduct(product);
             if (store == null)
                 return new SimpleDataDTO<>(false);
             store.setCount(count);
             store.setProdId(product);
             store.setUpdated(new Date());
-            jpaController.update(store);
+            dbController.update(store);
         } catch (Exception e) {
             logger.error("Unable to update product in store", e);
             return new SimpleDataDTO<>(false);
@@ -70,16 +70,16 @@ public class StoreEngine extends AbstractEngine<Store, StoreDTO> {
     }
 
     public boolean isProductAvailable(Integer id, Integer count) {
-        return ((StoreJpaController) jpaController).isProductAvailable(productEngine.getBean(id), count);
+        return ((StoreJpaController) dbController).isProductAvailable(productEngine.getBean(id), count);
     }
 
     public boolean decreaseProducts(Integer id, Integer count) {
-        Store store = ((StoreJpaController) jpaController).findByProduct(productEngine.getBean(id));
+        Store store = ((StoreJpaController) dbController).findByProduct(productEngine.getBean(id));
         if (store == null)
             return false;
         store.setCount(store.getCount() - count);
         try {
-            jpaController.update(store);
+            dbController.update(store);
             return true;
         } catch (Exception e) {
             logger.error("Unable to decrease products count in store", e);

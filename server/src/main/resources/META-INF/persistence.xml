@@ -15,9 +15,10 @@
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/terramarket"/>
-      <property name="javax.persistence.jdbc.password" value="tm"/>
+      <property name="javax.persistence.jdbc.password" value="to"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.user" value="tm"/>
+      <property name="javax.persistence.jdbc.user" value="to"/>
+<property name="eclipselink.ddl-generation" value="create-tables"/>
     </properties>
   </persistence-unit>
 </persistence>

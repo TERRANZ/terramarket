@@ -20,7 +20,7 @@ public class UsersEngine extends AbstractEngine<User, UserDTO> {
     }
 
     public Integer registerUser(String login, String password) {
-        if (((UserJpaController) jpaController).findUser(login) != null) {
+        if (((UserJpaController) dbController).findUser(login) != null) {
             return -1;
         } else {
             User u = new User();
@@ -33,12 +33,12 @@ public class UsersEngine extends AbstractEngine<User, UserDTO> {
     }
 
     public Integer getUserId(String login) {
-        User u = ((UserJpaController) jpaController).findUser(login);
+        User u = ((UserJpaController) dbController).findUser(login);
         return u != null ? u.getId() : -1;
     }
 
     public User findUser(String login, String password) {
-        return ((UserJpaController) jpaController).findUser(login, password);
+        return ((UserJpaController) dbController).findUser(login, password);
 
     }
 
@@ -46,7 +46,7 @@ public class UsersEngine extends AbstractEngine<User, UserDTO> {
         logger.info("findUserByName " + name);
         User u = null;
         try {
-            u = ((UserJpaController) jpaController).findUser(name);
+            u = ((UserJpaController) dbController).findUser(name);
         } catch (NoResultException e) {
             logger.info("error while loading user " + e.getMessage());
             e.printStackTrace();

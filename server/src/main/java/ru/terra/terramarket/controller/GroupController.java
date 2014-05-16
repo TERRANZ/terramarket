@@ -22,7 +22,7 @@ public class GroupController extends AbstractController<Groups, GroupDTO, GroupE
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public GroupController() {
-        super(GroupEngine.class);
+        super(GroupEngine.class, false, Groups.class, GroupDTO.class);
     }
 
     @POST
