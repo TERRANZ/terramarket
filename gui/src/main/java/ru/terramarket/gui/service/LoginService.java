@@ -2,8 +2,7 @@ package ru.terramarket.gui.service;
 
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import ru.terramarket.rest.dto.LoginDTO;
-import ru.terramarket.rest.service.TMRestServiceBase;
+import ru.terra.server.dto.LoginDTO;
 
 /**
  * Date: 16.05.14
@@ -24,8 +23,7 @@ public class LoginService extends Service<LoginDTO> {
         return new Task<LoginDTO>() {
             @Override
             protected LoginDTO call() throws Exception {
-                LoginDTO ret = TMRestServiceBase.login().doLoginJson().getAsLoginDTO(user, pass);
-                return ret;
+                return null;
             }
         };
     }
